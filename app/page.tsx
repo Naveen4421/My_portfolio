@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="min-h-screen px-6 py-20 bg-zinc-50 dark:bg-black text-black dark:text-white">
+    <div className="min-h-screen px-6 pt-32 pb-20 bg-zinc-50 dark:bg-black text-black dark:text-white">
       {/* HEADER */}
       <header className="mb-24 text-center">
         <h1 className="text-5xl md:text-6xl font-bold">
@@ -116,7 +116,7 @@ export default function Home() {
               href="mailto:naveen.siddappa44@gmail.com"
               className="text-blue-500 underline"
             >
-              naveen@example.com
+              naveen.siddappa@gmail.com
             </a>
           </p>
 
