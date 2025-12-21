@@ -3,49 +3,107 @@ import { FaLinkedin, FaGithub, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Contact() {
   return (
-    <div>
-      <h1 className="text-5xl font-bold mb-6">Contact Me</h1>
+    <section className="min-h-screen px-6 pt-32 pb-20 bg-zinc-50 dark:bg-black text-black dark:text-white">
+      <div className="max-w-5xl mx-auto">
 
-      <p className="mb-10 text-lg">
-        Feel free to reach out for collaborations or opportunities.
-      </p>
+        <h1 className="text-5xl font-bold mb-6">
+          Contact Me
+        </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
-        <div className="space-y-8 text-lg">
-          <div>
-            <FiMail size={30} />
-            <p className="font-semibold mt-2">Email</p>
-            <p>navi25231@gmail.com</p>
+        <p className="mb-16 text-lg text-gray-600 dark:text-gray-400">
+          Feel free to reach out for collaborations, internships, or opportunities.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+
+          {/* LEFT: CONTACT INFO */}
+          <div className="space-y-10 text-lg">
+
+            <div className="flex items-start gap-4">
+              <FiMail size={26} />
+              <div>
+                <p className="font-semibold">Email</p>
+                <a
+                  href="mailto:naveen.siddappa44@gmail.com"
+                  className="text-gray-600 dark:text-gray-400 hover:underline"
+                >
+                  naveen.siddappa44@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <FaLinkedin size={26} />
+              <div>
+                <p className="font-semibold">LinkedIn</p>
+                <a
+                  href="https://linkedin.com/in/naveen-s-44ns"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 dark:text-gray-400 hover:underline"
+                >
+                  linkedin.com/in/naveen-s-44ns
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <FaGithub size={26} />
+              <div>
+                <p className="font-semibold">GitHub</p>
+                <a
+                  href="https://github.com/Naveen4421"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 dark:text-gray-400 hover:underline"
+                >
+                  github.com/Naveen4421
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <FaMapMarkerAlt size={26} />
+              <div>
+                <p className="font-semibold">Location</p>
+                <p className="text-gray-600 dark:text-gray-400">India</p>
+              </div>
+            </div>
           </div>
 
+          {/* RIGHT: CONTACT FORM */}
           <div>
-            <FaLinkedin size={30} />
-            <p className="font-semibold mt-2">LinkedIn</p>
-            <p>linkedi-Naveen S</p>
+            <form className="space-y-6">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="w-full border border-gray-300 dark:border-gray-700 bg-transparent p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+              />
+
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full border border-gray-300 dark:border-gray-700 bg-transparent p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+              />
+
+              <textarea
+                rows={5}
+                placeholder="Your Message"
+                className="w-full border border-gray-300 dark:border-gray-700 bg-transparent p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
+              />
+
+              <button
+                type="submit"
+                className="w-full bg-black dark:bg-white text-white dark:text-black py-3 rounded-lg font-medium hover:opacity-90 transition"
+              >
+                Send Message
+              </button>
+            </form>
           </div>
 
-          <div>
-            <FaGithub size={30} />
-            <p className="font-semibold mt-2">GitHub</p>
-            <p>github-NAveen4421</p>
-          </div>
-
-          <div>
-            <FaMapMarkerAlt size={30} />
-            <p className="font-semibold mt-2">Location</p>
-            <p>India</p>
-          </div>
-        </div>
-
-        <div>
-          <form className="space-y-6">
-            <input type="text" placeholder="Name" className="w-full border p-3 rounded" />
-            <input type="email" placeholder="Email" className="w-full border p-3 rounded" />
-            <textarea rows={5} placeholder="Message" className="w-full border p-3 rounded" />
-            <button className="w-full bg-black text-white py-3 rounded">Send Message</button>
-          </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
+

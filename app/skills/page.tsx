@@ -1,58 +1,66 @@
-const Tag = ({ children }: { children: React.ReactNode }) => (
-  <span className="px-4 py-2 border rounded-full text-sm mr-3 mb-3 inline-block
-    hover:bg-white hover:text-black transition">
-    {children}
-  </span>
-);
+export default function SkillsPage() {
+  const skillGroups = [
+    {
+      title: "Languages",
+      skills: ["C", "C++", "Python","Java", "JavaScript", "TypeScript", "SQL"],
+    },
+    {
+      title: "Frontend",
+      skills: ["React", "Next.js", "HTML", "CSS", "Tailwind CSS"],
+    },
+    {
+      title: "Backend",
+      skills: ["Node.js", "Express", "REST APIs"],
+    },
+    {
+      title: "DevOps & Tools",
+      skills: [
+        "Linux",
+        "Docker",
+        "Kubernetes",
+        "Git",
+        "GitHub Actions",
+        "Jenkins",
+      ],
+    },
+    {
+      title: "Databases",
+      skills: ["MongoDB", "MySQL"],
+    },
+  ];
 
-export default function Skills() {
   return (
-    <section className="pt-28 px-6 max-w-5xl mx-auto">
-      <h1 className="text-4xl font-bold mb-14 text-center">My Skills</h1>
+    <section className="min-h-screen px-6 pt-32 pb-20 bg-zinc-50 dark:bg-black text-black dark:text-white">
+      <div className="max-w-5xl mx-auto">
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <h1 className="text-4xl font-bold mb-16 text-center">
+          Skills
+        </h1>
 
-        {/* Languages */}
-        <div className="border rounded-xl p-6 hover:shadow-lg transition">
-          <h2 className="text-2xl font-semibold mb-6">Languages</h2>
-          <div className="flex flex-wrap">
-            <Tag>C</Tag>
-            <Tag>C++</Tag>
-            <Tag>Python</Tag>
-            <Tag>Java</Tag>
-            <Tag>JavaScript</Tag>
-            <Tag>TypeScript</Tag>
-            <Tag>SQL</Tag>
-            <Tag>HTML</Tag>
-            <Tag>CSS</Tag>
-          </div>
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {skillGroups.map((group) => (
+            <div
+              key={group.title}
+              className="border rounded-2xl p-6 hover:shadow-lg transition"
+            >
+              <h2 className="text-2xl font-semibold mb-4">
+                {group.title}
+              </h2>
 
-        {/* Frameworks */}
-        <div className="border rounded-xl p-6 hover:shadow-lg transition">
-          <h2 className="text-2xl font-semibold mb-6">
-            Frameworks & Libraries
-          </h2>
-          <div className="flex flex-wrap">
-            <Tag>React</Tag>
-            <Tag>Next.js</Tag>
-            <Tag>Node.js</Tag>
-            <Tag>Tailwind</Tag>
-            <Tag>Redux</Tag>
-            <Tag>Express</Tag>
-          </div>
-        </div>
-
-        {/* Tools */}
-        <div className="border rounded-xl p-6 hover:shadow-lg transition">
-          <h2 className="text-2xl font-semibold mb-6">Tools</h2>
-          <div className="flex flex-wrap">
-            <Tag>Linux</Tag>
-            <Tag>Docker</Tag>
-            <Tag>Kubernetes</Tag>
-            <Tag>GitHub</Tag>
-            <Tag>GitHub Actions</Tag>
-          </div>
+              <div className="flex flex-wrap gap-3">
+                {group.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-4 py-2 rounded-full text-sm font-medium 
+                               bg-black text-white 
+                               dark:bg-white dark:text-black"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
 
       </div>
