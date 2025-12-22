@@ -1,0 +1,74 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+.sourGummy {
+  font-family: "Sour Gummy", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.mouseDetector {
+  padding: 10px;
+  display: inline-block;
+}
+
+/* Visibility logic based on hover */
+.mouseDetector:hover .lefteyelid { visibility: hidden; }
+.mouseDetector:hover .sleepSymbol { visibility: hidden; }
+
+/* Wrapper removed, simplifying hover logic to mouseDetector for now */
+.mouseDetector:hover .righteyelid { visibility: hidden; }
+.mouseDetector:hover .eyesdown { visibility: visible; }
+
+/* Tail Logic */
+.tail { visibility: visible; }
+.longtail { visibility: visible; }
+
+.eyesdown { visibility: hidden; }
+
+.catContainer {
+  position: relative;
+  /* padding: 30px; */
+}
+
+.sleepSymbol {
+  position: absolute;
+  top: -40px;
+  right: 20px;
+  font-weight: 600;
+  pointer-events: none;
+  color: #4b5563;
+}
+
+.sleepSymbol span {
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+  transform: scale(1);
+  animation: sleep 4s ease-in-out infinite;
+}
+
+.sleepSymbol span:nth-child(1) { animation-delay: 0s; }
+.sleepSymbol span:nth-child(2) { animation-delay: 1s; margin-left: -5px; }
+.sleepSymbol span:nth-child(3) { animation-delay: 2s; margin-left: -5px; }
+
+.svgContainer {
+  position: absolute;
+  top: -35px;
+  right: -10px;
+  z-index: 20;
+  pointer-events: none;
+  transform: scale(0.8);
+}
+
+
+
+/* Animation loop for sleep symbol */
+@keyframes sleep {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  50% { opacity: 0.5; transform: translate(-5px, -15px) scale(1.2); }
+  100% { opacity: 0; transform: translateY(-30px) scale(1.5); }
+}
+
