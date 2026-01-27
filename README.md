@@ -63,3 +63,5 @@ npm start
 ## Configuration
 
 Currently, this project **does not require any `.env` file** to run locally. All configurations are self-contained.
+
+## Latest Update: SSH setup verified.
