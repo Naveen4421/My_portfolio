@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin, FaFileDownload } from "react-icons/fa";
-import Cat from "../Cat";
+
 
 export default function Hero() {
   return (
@@ -21,9 +21,7 @@ export default function Hero() {
 
       <div className="mt-20 flex flex-col md:flex-row gap-6 animate-slide-up [animation-delay:600ms] relative items-center">
         {/* Sleeping Cat */}
-        <div className="absolute -top-[45px] left-[calc(50%+87px)] -translate-x-1/2 md:ml-0 md:transform-none md:-top-[44px] md:left-[109px] lg:left-[calc(50%-14px)] z-10 scale-75 origin-bottom pointer-events-none">
-           <Cat />
-        </div>
+
 
         <a
           href="#projects"
