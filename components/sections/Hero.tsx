@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaGithub, FaLinkedin, FaEye, FaPaperPlane } from "react-icons/fa";
 import Link from "next/link";
 
@@ -9,6 +9,98 @@ export default function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
+
+  const [inputVal, setInputVal] = useState("");
+  const [history, setHistory] = useState<Array<{ cmd: string; result: React.ReactNode }>>([
+    { cmd: "whoami", result: <div className="text-cyan-400 mt-1">DevOps & Cloud Engineer</div> },
+    { 
+      cmd: "cat stats.yml", 
+      result: (
+        <div className="pl-4 mt-1 space-y-1 text-zinc-400">
+          <div>
+            <span className="text-zinc-500">experience:</span> <span className="text-cyan-400">fresher</span>
+          </div>
+          <div>
+            <span className="text-zinc-500">clusters:</span> <span className="text-cyan-400">10+ Kubernetes</span>
+          </div>
+          <div>
+            <span className="text-zinc-500">uptime:</span> <span className="text-cyan-400">99.99%</span>
+          </div>
+          <div>
+            <span className="text-zinc-500">cost_saved:</span> <span className="text-cyan-400">$30K</span>
+          </div>
+          <div>
+            <span className="text-zinc-500">pipelines:</span> <span className="text-cyan-400">4+ Automated</span>
+          </div>
+        </div>
+      )
+    },
+    { cmd: "echo $STATUS", result: <div className="text-emerald-400 mt-1">open_to_opportunities: true</div> }
+  ]);
+
+  const terminalEndRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [history]);
+
+  const handleCommand = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const cmd = inputVal.trim().toLowerCase();
+    if (!cmd) return;
+
+    let result: React.ReactNode = null;
+
+    if (cmd === "help") {
+      result = (
+        <div className="text-zinc-400 mt-1 space-y-1">
+          <div>Available commands:</div>
+          <div className="pl-2">- <span className="text-cyan-400">help</span>: Show this menu</div>
+          <div className="pl-2">- <span className="text-cyan-400">whoami</span>: Display role information</div>
+          <div className="pl-2">- <span className="text-cyan-400">cat stats.yml</span>: View DevOps stats</div>
+          <div className="pl-2">- <span className="text-cyan-400">skills</span>: List key engineering skills</div>
+          <div className="pl-2">- <span className="text-cyan-400">clear</span>: Clear console history</div>
+        </div>
+      );
+    } else if (cmd === "whoami") {
+      result = <div className="text-cyan-400 mt-1">DevOps & Cloud Engineer</div>;
+    } else if (cmd === "cat stats.yml" || cmd === "stats") {
+      result = (
+        <div className="pl-4 mt-1 space-y-1 text-zinc-400">
+          <div>
+            <span className="text-zinc-500">experience:</span> <span className="text-cyan-400">fresher</span>
+          </div>
+          <div>
+            <span className="text-zinc-500">clusters:</span> <span className="text-cyan-400">10+ Kubernetes</span>
+          </div>
+          <div>
+            <span className="text-zinc-500">uptime:</span> <span className="text-cyan-400">99.99%</span>
+          </div>
+          <div>
+            <span className="text-zinc-500">cost_saved:</span> <span className="text-cyan-400">$30K</span>
+          </div>
+          <div>
+            <span className="text-zinc-500">pipelines:</span> <span className="text-cyan-400">4+ Automated</span>
+          </div>
+        </div>
+      );
+    } else if (cmd === "skills") {
+      result = (
+        <div className="text-zinc-400 mt-1 pl-2 space-y-1">
+          <div>Docker, Kubernetes, Jenkins, AWS, Git, Python, JavaScript/TypeScript</div>
+        </div>
+      );
+    } else if (cmd === "clear") {
+      setHistory([]);
+      setInputVal("");
+      return;
+    } else {
+      result = <div className="text-red-400 mt-1">bash: command not found: {cmd}</div>;
+    }
+
+    setHistory(prev => [...prev, { cmd: inputVal, result }]);
+    setInputVal("");
+  };
 
   const words = [
     "Kubernetes Expert (10+ Clusters)",
@@ -104,47 +196,28 @@ export default function Hero() {
             <span className="text-xs text-zinc-500">naveen@infra ~</span>
           </div>
 
-          <div className="space-y-4">
-            <div>
-              <span className="text-emerald-400 font-bold">$ </span>
-              <span className="text-zinc-100">whoami</span>
-              <div className="text-cyan-400 mt-1">DevOps & Cloud Engineer</div>
-            </div>
-
-            <div>
-              <span className="text-emerald-400 font-bold">$ </span>
-              <span className="text-zinc-100">cat stats.yml</span>
-              <div className="pl-4 mt-1 space-y-1 text-zinc-400">
-                <div>
-                  <span className="text-zinc-500">experience:</span>{" "}
-                  <span className="text-cyan-400">fresher</span>
+          <div className="max-h-[260px] overflow-y-auto pr-1 space-y-4 scrollbar-thin scrollbar-thumb-zinc-800 text-left">
+            {history.map((item, index) => (
+              <div key={index}>
+                <div className="flex items-center gap-1">
+                  <span className="text-emerald-400 font-bold">$ </span>
+                  <span className="text-zinc-100">{item.cmd}</span>
                 </div>
-                <div>
-                  <span className="text-zinc-500">clusters:</span>{" "}
-                  <span className="text-cyan-400">10+ Kubernetes</span>
-                </div>
-                <div>
-                  <span className="text-zinc-500">uptime:</span>{" "}
-                  <span className="text-cyan-400">99.99%</span>
-                </div>
-                <div>
-                  <span className="text-zinc-500">cost_saved:</span>{" "}
-                  <span className="text-cyan-400">$30K</span>
-                </div>
-                <div>
-                  <span className="text-zinc-500">pipelines:</span>{" "}
-                  <span className="text-cyan-400">4+ Automated</span>
-                </div>
+                {item.result}
               </div>
-            </div>
+            ))}
 
-            <div>
+            <form onSubmit={handleCommand} className="flex items-center gap-1 mt-2">
               <span className="text-emerald-400 font-bold">$ </span>
-              <span className="text-zinc-100">echo $STATUS</span>
-              <div className="text-emerald-400 mt-1">
-                open_to_opportunities: true
-              </div>
-            </div>
+              <input
+                type="text"
+                value={inputVal}
+                onChange={(e) => setInputVal(e.target.value)}
+                className="flex-1 bg-transparent text-zinc-100 focus:outline-none border-none p-0 text-sm font-mono placeholder-zinc-700"
+                placeholder="type 'help'..."
+              />
+            </form>
+            <div ref={terminalEndRef} />
           </div>
         </div>
       </div>

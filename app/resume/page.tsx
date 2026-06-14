@@ -107,20 +107,30 @@ export default function Resume() {
              <div className="mb-4">
                 <div className="flex justify-between items-baseline mb-1">
                     <h3 className="font-bold text-base text-slate-800">CI/CD Pipeline for Full-Stack App</h3>
-                    <span className="text-xs text-gray-500 font-mono bg-gray-100 px-2 py-0.5 rounded">Docker, Jenkins, K8s</span>
+                    <span className="text-xs text-gray-500 font-mono bg-gray-100 px-2 py-0.5 rounded">Docker, Jenkins, Kubernetes</span>
                 </div>
                 <p className="text-sm text-gray-700 leading-snug">
-                    Implemented a complete DevOps pipeline for a full-stack web application, automating the process from code integration to deployment and monitoring. Ensured faster, more reliable, and scalable software delivery with real-time system visibility and alerts.
+                    Implemented an automated DevOps pipeline from code integration to secure Kubernetes deployment, including automated testing, security scanning, and Prometheus monitoring.
+                </p>
+             </div>
+
+             <div className="mb-4">
+                <div className="flex justify-between items-baseline mb-1">
+                    <h3 className="font-bold text-base text-slate-800">DSA Tracker</h3>
+                    <span className="text-xs text-gray-500 font-mono bg-gray-100 px-2 py-0.5 rounded">Next.js, Tailwind, GitHub Actions</span>
+                </div>
+                <p className="text-sm text-gray-700 leading-snug">
+                    Designed and built a progressive web application for tracking coding challenges, integrated with automated unit tests and continuous deployment serverlessly on Vercel.
                 </p>
              </div>
 
              <div>
                 <div className="flex justify-between items-baseline mb-1">
-                    <h3 className="font-bold text-base text-slate-800">Drug Detection Using ML</h3>
-                    <span className="text-xs text-gray-500 font-mono bg-gray-100 px-2 py-0.5 rounded">Python, ML</span>
+                    <h3 className="font-bold text-base text-slate-800">Flight Price Predictor</h3>
+                    <span className="text-xs text-gray-500 font-mono bg-gray-100 px-2 py-0.5 rounded">Python, ML, Flask</span>
                 </div>
                 <p className="text-sm text-gray-700 leading-snug">
-                    Developed a model to classify and detect drug types based on chemical properties using supervised learning algorithms. Implemented data preprocessing and feature extraction, achieving improved detection accuracy through model tuning.
+                    Developed a machine learning regression model to predict flight ticket prices based on historical flight features, exposed via a production-grade Flask API.
                 </p>
              </div>
           </section>

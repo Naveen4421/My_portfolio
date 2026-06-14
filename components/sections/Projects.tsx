@@ -43,16 +43,23 @@ export default function Projects() {
         {/* Pipeline Container */}
         <div className="relative">
           {/* Horizontal Line connecting nodes on Large screens */}
-          <div className="absolute left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-cyan-400 via-teal-400 to-indigo-400 top-0 hidden lg:block z-0" />
+          <div className="absolute left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-cyan-400 via-teal-400 to-indigo-400 top-[30px] hidden lg:block z-0" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
-            {projects.map((project, index) => (
-              <div key={index} className="flex flex-col items-center">
-                {/* Node circle on Large screens */}
-                <div className="w-5 h-5 rounded-full bg-cyan-400 border-4 border-zinc-950 shadow-[0_0_10px_rgba(34,211,238,0.8)] mb-6 hidden lg:block z-20 hover:scale-125 transition-transform duration-200" />
-                
-                {/* Vertical connector line on Large screens */}
-                <div className="w-[2px] h-6 bg-gradient-to-b from-cyan-400 to-zinc-800 -mt-6 mb-4 hidden lg:block" />
+            {projects.map((project, index) => {
+              const stageLabels = ["01_BUILD", "02_TEST", "03_DEPLOY", "04_MONITOR"];
+              return (
+                <div key={index} className="flex flex-col items-center">
+                  {/* Stage Label on Large screens */}
+                  <div className="hidden lg:block text-[9px] font-mono tracking-widest text-cyan-400/80 font-bold mb-2 uppercase">
+                    {stageLabels[index]}
+                  </div>
+
+                  {/* Node circle on Large screens */}
+                  <div className="w-5 h-5 rounded-full bg-cyan-400 border-4 border-zinc-950 shadow-[0_0_10px_rgba(34,211,238,0.8)] mb-6 hidden lg:block z-20 hover:scale-125 transition-transform duration-200 animate-pulse" />
+                  
+                  {/* Vertical connector line on Large screens */}
+                  <div className="w-[2px] h-6 bg-gradient-to-b from-cyan-400 to-zinc-800 -mt-6 mb-4 hidden lg:block" />
 
                 {/* Project Card */}
                 <div className="group p-6 border border-zinc-800 rounded-2xl bg-[#08080a]/80 backdrop-blur-md hover:bg-[#0a0a0c] hover:border-cyan-500/50 hover:shadow-[0_0_25px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-[280px] w-full">
@@ -96,7 +103,8 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-            ))}
+            );
+          })}
           </div>
         </div>
       </div>

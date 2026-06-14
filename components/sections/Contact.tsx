@@ -1,10 +1,44 @@
 "use client";
 
+import { useState } from "react";
 import { FaEnvelope, FaLinkedin, FaGithub, FaWhatsapp, FaPaperPlane } from "react-icons/fa";
 
 export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+  const [terminalLogs, setTerminalLogs] = useState<string[]>([]);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!name || !email || !message) return;
+    setStatus('sending');
+    setTerminalLogs(["$ ./contact_agent.sh --send --payload=message"]);
+
+    setTimeout(() => {
+      setTerminalLogs(prev => [...prev, "$ initiating secure SMTP handshake..."]);
+    }, 400);
+
+    setTimeout(() => {
+      setTerminalLogs(prev => [...prev, "$ compressing packet payload (size: 1.2KB)..."]);
+    }, 900);
+
+    setTimeout(() => {
+      setTerminalLogs(prev => [...prev, "$ forwarding packet to mailer gateway..."]);
+    }, 1400);
+
+    setTimeout(() => {
+      setTerminalLogs(prev => [
+        ...prev, 
+        "$ server_handshake: OK", 
+        "[SUCCESS] 200 OK - Message dispatched successfully!"
+      ]);
+      setStatus('success');
+      setName("");
+      setEmail("");
+      setMessage("");
+    }, 1900);
   };
 
   return (
@@ -97,57 +131,116 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right Column: Contact Form */}
-          <form 
-            onSubmit={handleSubmit}
-            className="p-6 border border-zinc-800/60 rounded-2xl bg-[#08080a]/90 backdrop-blur-md space-y-4 w-full"
-          >
-            <div>
-              <label htmlFor="name" className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                required
-                placeholder="Your name"
-                className="w-full px-4 py-3 bg-[#0c0c0f] border border-zinc-800 rounded-lg text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-400 transition"
-              />
-            </div>
+          {/* Right Column: Contact Form / Terminal Simulation */}
+          <div className="w-full">
+            {status !== 'idle' ? (
+              <div className="p-6 border border-zinc-800/60 rounded-2xl bg-[#08080a]/90 backdrop-blur-md space-y-4 w-full h-[328px] font-mono text-xs text-gray-300 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between border-b border-zinc-800/60 pb-2 mb-3">
+                    <div className="flex gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 animate-pulse" />
+                    </div>
+                    <span className="text-[10px] text-zinc-500">contact_agent.sh</span>
+                  </div>
+                  
+                  <div className="space-y-2 text-left">
+                    {terminalLogs.map((log, i) => (
+                      <div 
+                        key={i} 
+                        className={
+                          log.startsWith('[SUCCESS]') 
+                            ? 'text-emerald-400 font-semibold' 
+                            : log.startsWith('$') 
+                              ? 'text-zinc-400' 
+                              : 'text-cyan-400'
+                        }
+                      >
+                        {log}
+                      </div>
+                    ))}
+                    {status === 'sending' && (
+                      <div className="flex items-center gap-1 text-cyan-400 animate-pulse">
+                        <span>$ transmitting payload</span>
+                        <span className="font-bold">...</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
 
-            <div>
-              <label htmlFor="email" className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                required
-                placeholder="you@company.com"
-                className="w-full px-4 py-3 bg-[#0c0c0f] border border-zinc-800 rounded-lg text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-400 transition"
-              />
-            </div>
+                {status === 'success' && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setStatus('idle');
+                      setTerminalLogs([]);
+                    }}
+                    className="w-full py-2 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-white rounded-lg text-xs font-mono transition cursor-pointer"
+                  >
+                    $ reset_agent --force
+                  </button>
+                )}
+              </div>
+            ) : (
+              <form 
+                onSubmit={handleSubmit}
+                className="p-6 border border-zinc-800/60 rounded-2xl bg-[#08080a]/90 backdrop-blur-md space-y-4 w-full"
+              >
+                <div>
+                  <label htmlFor="name" className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Your name"
+                    className="w-full px-4 py-3 bg-[#0c0c0f] border border-zinc-800 rounded-lg text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-400 transition"
+                  />
+                </div>
 
-            <div>
-              <label htmlFor="message" className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                required
-                rows={3}
-                placeholder="Tell me about the role or project..."
-                className="w-full px-4 py-3 bg-[#0c0c0f] border border-zinc-800 rounded-lg text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-400 transition resize-none"
-              />
-            </div>
+                <div>
+                  <label htmlFor="email" className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@company.com"
+                    className="w-full px-4 py-3 bg-[#0c0c0f] border border-zinc-800 rounded-lg text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-400 transition"
+                  />
+                </div>
 
-            <button
-              type="submit"
-              className="w-full py-3 bg-cyan-400 text-black hover:bg-cyan-300 rounded-lg text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition hover:scale-[1.01] shadow-[0_0_20px_rgba(34,211,238,0.25)] cursor-pointer"
-            >
-              <FaPaperPlane /> Send Message
-            </button>
-          </form>
+                <div>
+                  <label htmlFor="message" className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    required
+                    rows={3}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    placeholder="Tell me about the role or project..."
+                    className="w-full px-4 py-3 bg-[#0c0c0f] border border-zinc-800 rounded-lg text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-400 transition resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3 bg-cyan-400 text-black hover:bg-cyan-300 rounded-lg text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition hover:scale-[1.01] shadow-[0_0_20px_rgba(34,211,238,0.25)] cursor-pointer"
+                >
+                  <FaPaperPlane /> Send Message
+                </button>
+              </form>
+            )}
+          </div>
         </div>
         
         {/* Footer */}
