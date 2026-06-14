@@ -1,6 +1,6 @@
 "use client";
 
-import { FaEnvelope, FaLinkedin, FaGithub, FaPhone, FaMapMarkerAlt, FaPrint, FaArrowLeft } from "react-icons/fa";
+import { FaEnvelope, FaLinkedin, FaGithub, FaPhone, FaMapMarkerAlt, FaPrint, FaArrowLeft, FaFileDownload } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Resume() {
@@ -15,12 +15,22 @@ export default function Resume() {
           <FaArrowLeft /> Back to Portfolio
         </Link>
         
-        <button
-          onClick={() => window.print()}
-          className="flex items-center gap-2 px-4 py-2 bg-cyan-400 text-black font-semibold rounded-lg hover:bg-cyan-300 shadow-[0_0_15px_rgba(34,211,238,0.2)] transition"
-        >
-          <FaPrint /> Print / Save as PDF
-        </button>
+        <div className="flex gap-3">
+          <a
+            href="/resume/Naveen_Resume.pdf"
+            download
+            className="flex items-center gap-2 px-4 py-2 bg-zinc-900 border border-zinc-800 text-white font-semibold rounded-lg hover:bg-zinc-800 transition"
+          >
+            <FaFileDownload /> Download PDF
+          </a>
+          
+          <button
+            onClick={() => window.print()}
+            className="flex items-center gap-2 px-4 py-2 bg-cyan-400 text-black font-semibold rounded-lg hover:bg-cyan-300 shadow-[0_0_15px_rgba(34,211,238,0.2)] transition"
+          >
+            <FaPrint /> Print / Save as PDF
+          </button>
+        </div>
       </div>
 
       {/* A4 Paper Container */}

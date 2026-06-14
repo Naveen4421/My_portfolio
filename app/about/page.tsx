@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function About() {
   return (
     <div className="min-h-screen px-6 pt-32 pb-20 bg-grid bg-[#030303] text-white relative overflow-hidden">
@@ -20,13 +22,12 @@ export default function About() {
 
           {/* Resume buttons */}
           <div className="mt-8 flex gap-4">
-            <a
-              href="/resume/Naveen_Resume.pdf"
-              target="_blank"
+            <Link
+              href="/resume"
               className="px-6 py-3 bg-cyan-400 text-black hover:bg-cyan-300 rounded-lg font-semibold shadow-[0_0_20px_rgba(34,211,238,0.2)] hover:scale-105 transition"
             >
               View Resume
-            </a>
+            </Link>
 
             <a
               href="/resume/Naveen_Resume.pdf"

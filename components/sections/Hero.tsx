@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FaGithub, FaLinkedin, FaFileDownload, FaPaperPlane } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEye, FaPaperPlane } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Hero() {
   const [text, setText] = useState("");
@@ -76,13 +77,12 @@ export default function Hero() {
           >
             <FaPaperPlane /> Get In Touch
           </a>
-          <a
-            href="/resume/Naveen_Resume.pdf"
-            download
+          <Link
+            href="/resume"
             className="px-5 py-2.5 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-white rounded-lg text-sm font-medium flex items-center gap-2 transition hover:scale-105"
           >
-            <FaFileDownload /> Download Resume
-          </a>
+            <FaEye /> View Resume
+          </Link>
           <a
             href="#projects"
             className="px-5 py-2.5 bg-zinc-900/50 border border-zinc-800/50 hover:border-zinc-700 text-zinc-400 hover:text-white rounded-lg text-sm font-medium flex items-center gap-2 transition hover:scale-105"
