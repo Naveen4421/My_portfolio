@@ -46,8 +46,12 @@ export default function Hero() {
 
   const handleCommand = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const cmd = inputVal.trim().toLowerCase();
-    if (!cmd) return;
+    const fullCmd = inputVal.trim();
+    if (!fullCmd) return;
+
+    const parts = fullCmd.split(/\s+/);
+    const cmd = parts[0].toLowerCase();
+    const args = parts.slice(1);
 
     let result: React.ReactNode = null;
 
@@ -55,41 +59,74 @@ export default function Hero() {
       result = (
         <div className="text-zinc-400 mt-1 space-y-1">
           <div>Available commands:</div>
-          <div className="pl-2">- <span className="text-cyan-400">help</span>: Show this menu</div>
+          <div className="pl-2">- <span className="text-cyan-400">ls</span>: List files</div>
+          <div className="pl-2">- <span className="text-cyan-400">cat &lt;file&gt;</span>: View file contents</div>
           <div className="pl-2">- <span className="text-cyan-400">whoami</span>: Display role information</div>
-          <div className="pl-2">- <span className="text-cyan-400">cat stats.yml</span>: View DevOps stats</div>
-          <div className="pl-2">- <span className="text-cyan-400">skills</span>: List key engineering skills</div>
           <div className="pl-2">- <span className="text-cyan-400">clear</span>: Clear console history</div>
         </div>
       );
+    } else if (cmd === "ls") {
+      result = (
+        <div className="text-cyan-400 mt-1 font-semibold space-x-4">
+          <span>stats.yml</span>
+          <span>skills.txt</span>
+          <span>readme.md</span>
+        </div>
+      );
+    } else if (cmd === "cat") {
+      if (args.length === 0) {
+        result = (
+          <div className="text-red-400 mt-1">
+            cat: missing file operand<br />
+            Try &apos;cat stats.yml&apos; or &apos;ls&apos; to see available files.
+          </div>
+        );
+      } else {
+        const file = args[0].toLowerCase();
+        if (file === "stats.yml" || file === "stats") {
+          result = (
+            <div className="pl-4 mt-1 space-y-1 text-zinc-400">
+              <div>
+                <span className="text-zinc-500">experience:</span> <span className="text-cyan-400">fresher</span>
+              </div>
+              <div>
+                <span className="text-zinc-500">clusters:</span> <span className="text-cyan-400">10+ Kubernetes</span>
+              </div>
+              <div>
+                <span className="text-zinc-500">uptime:</span> <span className="text-cyan-400">99.99%</span>
+              </div>
+              <div>
+                <span className="text-zinc-500">cost_saved:</span> <span className="text-cyan-400">$30K</span>
+              </div>
+              <div>
+                <span className="text-zinc-500">pipelines:</span> <span className="text-cyan-400">4+ Automated</span>
+              </div>
+            </div>
+          );
+        } else if (file === "skills.txt" || file === "skills") {
+          result = (
+            <div className="text-zinc-400 mt-1 space-y-1 pl-2">
+              <div>- Containers: Docker, Kubernetes</div>
+              <div>- CI/CD: Jenkins, GitHub Actions</div>
+              <div>- Cloud: AWS, GCP</div>
+              <div>- Automation: Terraform, Ansible</div>
+              <div>- Coding: Python, TypeScript, Bash</div>
+            </div>
+          );
+        } else if (file === "readme.md" || file === "readme") {
+          result = (
+            <div className="text-zinc-400 mt-1 pl-2 leading-relaxed">
+              Hi, I&apos;m Naveen S, a DevOps &amp; Cloud Engineer. <br />
+              I build scalable, automated, and self-healing systems. <br />
+              Type &apos;help&apos; to view all commands.
+            </div>
+          );
+        } else {
+          result = <div className="text-red-400 mt-1">cat: {args[0]}: No such file or directory</div>;
+        }
+      }
     } else if (cmd === "whoami") {
       result = <div className="text-cyan-400 mt-1">DevOps & Cloud Engineer</div>;
-    } else if (cmd === "cat stats.yml" || cmd === "stats") {
-      result = (
-        <div className="pl-4 mt-1 space-y-1 text-zinc-400">
-          <div>
-            <span className="text-zinc-500">experience:</span> <span className="text-cyan-400">fresher</span>
-          </div>
-          <div>
-            <span className="text-zinc-500">clusters:</span> <span className="text-cyan-400">10+ Kubernetes</span>
-          </div>
-          <div>
-            <span className="text-zinc-500">uptime:</span> <span className="text-cyan-400">99.99%</span>
-          </div>
-          <div>
-            <span className="text-zinc-500">cost_saved:</span> <span className="text-cyan-400">$30K</span>
-          </div>
-          <div>
-            <span className="text-zinc-500">pipelines:</span> <span className="text-cyan-400">4+ Automated</span>
-          </div>
-        </div>
-      );
-    } else if (cmd === "skills") {
-      result = (
-        <div className="text-zinc-400 mt-1 pl-2 space-y-1">
-          <div>Docker, Kubernetes, Jenkins, AWS, Git, Python, JavaScript/TypeScript</div>
-        </div>
-      );
     } else if (cmd === "clear") {
       setHistory([]);
       setInputVal("");
@@ -98,7 +135,7 @@ export default function Hero() {
       result = <div className="text-red-400 mt-1">bash: command not found: {cmd}</div>;
     }
 
-    setHistory(prev => [...prev, { cmd: inputVal, result }]);
+    setHistory(prev => [...prev, { cmd: fullCmd, result }]);
     setInputVal("");
   };
 
