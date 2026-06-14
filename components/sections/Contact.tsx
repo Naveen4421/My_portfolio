@@ -10,7 +10,7 @@ export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
   const [terminalLogs, setTerminalLogs] = useState<string[]>([]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!name || !email || !message) return;
     setStatus('sending');
@@ -18,27 +18,63 @@ export default function Contact() {
 
     setTimeout(() => {
       setTerminalLogs(prev => [...prev, "$ initiating secure SMTP handshake..."]);
-    }, 400);
+    }, 200);
 
     setTimeout(() => {
       setTerminalLogs(prev => [...prev, "$ compressing packet payload (size: 1.2KB)..."]);
-    }, 900);
+    }, 450);
 
     setTimeout(() => {
       setTerminalLogs(prev => [...prev, "$ forwarding packet to mailer gateway..."]);
-    }, 1400);
+    }, 700);
 
-    setTimeout(() => {
-      setTerminalLogs(prev => [
-        ...prev, 
-        "$ server_handshake: OK", 
-        "[SUCCESS] 200 OK - Message dispatched successfully!"
-      ]);
-      setStatus('success');
-      setName("");
-      setEmail("");
-      setMessage("");
-    }, 1900);
+    try {
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE";
+      
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: name,
+          email: email,
+          message: message,
+          subject: `New Portfolio Message from ${name}`,
+          from_name: "Portfolio Contact Agent",
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setTimeout(() => {
+          setTerminalLogs(prev => [
+            ...prev,
+            "$ server_handshake: OK",
+            "[SUCCESS] 200 OK - Message dispatched successfully!"
+          ]);
+          setStatus('success');
+          setName("");
+          setEmail("");
+          setMessage("");
+        }, 1000);
+      } else {
+        throw new Error(data.message || "Mailer API returned error status.");
+      }
+    } catch (error: any) {
+      setTimeout(() => {
+        setTerminalLogs(prev => [
+          ...prev,
+          `[ERROR] Connection failed: ${error.message || "Failed to submit form"}`,
+          "$ Please configure Web3Forms key or contact directly at:",
+          "  naveen.siddappa44@gmail.com"
+        ]);
+        setStatus('success');
+      }, 1000);
+    }
   };
 
   return (
