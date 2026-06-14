@@ -10,17 +10,17 @@ export default function Navbar() {
   const linkClass = (path: string) =>
     `transition ${
       pathname === path
-        ? "text-black dark:text-white font-semibold"
-        : "text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"
+        ? "text-emerald-400 font-semibold"
+        : "text-gray-400 hover:text-white"
     }`;
 
   // Floating Navbar Styles
   return (
     <nav className="fixed top-4 left-0 right-0 z-50 flex justify-center pointer-events-none">
-      <div className="bg-white/90 dark:bg-black/90 backdrop-blur-md border border-gray-200 dark:border-gray-800 shadow-xl rounded-2xl flex items-center px-4 py-2 pointer-events-auto max-w-7xl w-[95%] justify-between">
+      <div className="bg-black/80 backdrop-blur-md border border-zinc-800 shadow-xl rounded-2xl flex items-center px-4 py-2 pointer-events-auto max-w-7xl w-[95%] justify-between">
         
         {/* Logo */}
-        <Link href="/" className="font-bold text-2xl text-black dark:text-white mr-8">
+        <Link href="/" className="font-bold text-2xl text-emerald-400 mr-8 hover:scale-105 transition">
           NS.
         </Link>
 
@@ -35,14 +35,14 @@ export default function Navbar() {
         {/* Icons */}
         <div className="flex items-center gap-4">
            {/* Icons */}
-           <div className="flex gap-4 text-xl text-gray-700 dark:text-gray-300 pl-4">
-             <a href="https://github.com/Naveen4421" target="_blank" aria-label="GitHub" className="hover:scale-110 transition">
+           <div className="flex gap-4 text-xl text-gray-400 pl-4">
+             <a href="https://github.com/Naveen4421" target="_blank" aria-label="GitHub" className="hover:scale-110 transition hover:text-white">
                <FaGithub />
              </a>
-             <a href="https://linkedin.com/in/naveen-s-44ns" target="_blank" aria-label="LinkedIn" className="hover:scale-110 transition">
+             <a href="https://linkedin.com/in/naveen-s-44ns" target="_blank" aria-label="LinkedIn" className="hover:scale-110 transition hover:text-white">
                <FaLinkedin />
              </a>
-             <a href="mailto:naveen.siddappa@gmail.com" aria-label="Email" className="hover:scale-110 transition">
+             <a href="mailto:naveen.siddappa44@gmail.com" aria-label="Email" className="hover:scale-110 transition hover:text-white">
                <FaEnvelope />
              </a>
            </div>

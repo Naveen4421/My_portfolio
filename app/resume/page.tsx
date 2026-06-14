@@ -5,19 +5,19 @@ import Link from "next/link";
 
 export default function Resume() {
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-zinc-900 py-10 px-4 print:p-0 print:bg-white print:dark:bg-white print:text-black">
+    <div className="min-h-screen bg-grid bg-[#030303] text-white py-10 px-4 print:p-0 print:bg-white print:text-black relative overflow-hidden">
       {/* Controls - Hidden in Print */}
       <div className="max-w-[21cm] mx-auto mb-6 flex justify-between items-center print:hidden">
         <Link 
           href="/"
-          className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition"
+          className="flex items-center gap-2 text-gray-400 hover:text-white transition"
         >
           <FaArrowLeft /> Back to Portfolio
         </Link>
         
         <button
           onClick={() => window.print()}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-md"
+          className="flex items-center gap-2 px-4 py-2 bg-cyan-400 text-black font-semibold rounded-lg hover:bg-cyan-300 shadow-[0_0_15px_rgba(34,211,238,0.2)] transition"
         >
           <FaPrint /> Print / Save as PDF
         </button>

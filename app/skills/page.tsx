@@ -1,39 +1,39 @@
 export default function SkillsPage() {
   const skillGroups = [
     {
-      title: "Languages",
-      skills: ["C", "C++", "Python","Java", "JavaScript", "TypeScript", "SQL"],
+      title: "Cloud & Containerization",
+      skills: ["AWS", "Linux", "Docker", "Kubernetes", "Shell Scripting (Bash)"],
     },
     {
-      title: "Frontend",
-      skills: ["React", "Next.js", "HTML", "CSS", "Tailwind CSS"],
+      title: "CI/CD & GitOps",
+      skills: ["Jenkins", "GitHub Actions", "Git / GitHub", "GitLab CI"],
     },
     {
-      title: "Backend",
-      skills: ["Node.js", "Express", "REST APIs"],
+      title: "Infrastructure as Code (IaC)",
+      skills: ["Terraform", "Ansible"],
     },
     {
-      title: "DevOps & Tools",
-      skills: [
-        "Linux",
-        "Docker",
-        "Kubernetes",
-        "Git",
-        "GitHub Actions",
-        "Jenkins",
-      ],
+      title: "Monitoring & Observability",
+      skills: ["Prometheus", "Grafana", "Falco", "ELK Stack"],
+    },
+    {
+      title: "Languages & Frameworks",
+      skills: ["Python", "Go", "TypeScript", "Node.js", "Next.js", "React"],
     },
     {
       title: "Databases",
-      skills: ["MongoDB", "MySQL"],
+      skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
     },
   ];
 
   return (
-    <section className="min-h-screen px-6 pt-32 pb-20 bg-zinc-50 dark:bg-black text-black dark:text-white">
-      <div className="max-w-5xl mx-auto">
+    <section className="min-h-screen px-6 pt-32 pb-20 bg-grid bg-[#030303] text-white relative overflow-hidden">
+      {/* Background Gradient Glow */}
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[100px] -z-10 animate-pulse" />
 
-        <h1 className="text-4xl font-bold mb-16 text-center">
+      <div className="max-w-5xl mx-auto z-10 relative">
+
+        <h1 className="text-4xl font-bold mb-16 text-center text-white">
           Skills
         </h1>
 
@@ -41,9 +41,9 @@ export default function SkillsPage() {
           {skillGroups.map((group) => (
             <div
               key={group.title}
-              className="border rounded-2xl p-6 hover:shadow-lg transition"
+              className="border border-zinc-800 bg-[#08080a]/80 backdrop-blur-md rounded-2xl p-6 hover:border-zinc-700 hover:shadow-2xl transition duration-300"
             >
-              <h2 className="text-2xl font-semibold mb-4">
+              <h2 className="text-2xl font-semibold mb-4 text-white">
                 {group.title}
               </h2>
 
@@ -51,9 +51,7 @@ export default function SkillsPage() {
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-4 py-2 rounded-full text-sm font-medium 
-                               bg-black text-white 
-                               dark:bg-white dark:text-black"
+                    className="px-4 py-2 rounded-full text-sm font-medium bg-zinc-900 border border-zinc-800 text-gray-300 hover:border-zinc-700 hover:text-white transition"
                   >
                     {skill}
                   </span>

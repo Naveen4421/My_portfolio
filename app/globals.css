@@ -1,33 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc; /* Slate-50 - softer white */
-  --foreground: #0f172a; /* Slate-900 */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #020617; /* Slate-950 - deep dark */
-    --foreground: #f1f5f9; /* Slate-100 */
-  }
+  --background: #030303;
+  --foreground: #f1f5f9;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-josefin);
+  --font-sans: var(--font-inter);
   --font-display: var(--font-cormorant);
 }
 
 html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
+  background-color: #030303;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-josefin), sans-serif;
+  font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
 }
 
@@ -37,11 +31,28 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-josefin), sans-serif;
+  font-family: var(--font-inter), sans-serif;
 }
 
 .font-display {
   font-family: var(--font-cormorant), serif;
+}
+
+/* Custom Grid Utility */
+.bg-grid {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Terminal Cursor Blink Animation */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-start infinite;
 }
 
 /* Scrollbar hiding for cleaner look */

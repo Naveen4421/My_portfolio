@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Josefin_Sans, Cormorant_Garamond } from "next/font/google"; // Removed Geist as user requested specific fonts
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const josefin = Josefin_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-josefin",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -74,7 +74,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${josefin.variable} ${cormorant.variable} antialiased bg-background text-foreground`}
+        className={`${inter.variable} ${cormorant.variable} antialiased bg-background text-foreground`}
       >
         <Navbar />
         <main className="px-6 md:px-16 py-10">
