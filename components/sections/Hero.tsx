@@ -117,7 +117,7 @@ export default function Hero() {
               <div className="pl-4 mt-1 space-y-1 text-zinc-400">
                 <div>
                   <span className="text-zinc-500">experience:</span>{" "}
-                  <span className="text-cyan-400">2+ years</span>
+                  <span className="text-cyan-400">fresher</span>
                 </div>
                 <div>
                   <span className="text-zinc-500">clusters:</span>{" "}
@@ -129,11 +129,11 @@ export default function Hero() {
                 </div>
                 <div>
                   <span className="text-zinc-500">cost_saved:</span>{" "}
-                  <span className="text-cyan-400">$80K+</span>
+                  <span className="text-cyan-400">$30K</span>
                 </div>
                 <div>
                   <span className="text-zinc-500">pipelines:</span>{" "}
-                  <span className="text-cyan-400">40+ Automated</span>
+                  <span className="text-cyan-400">4+ Automated</span>
                 </div>
               </div>
             </div>
