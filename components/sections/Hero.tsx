@@ -184,7 +184,7 @@ export default function Hero() {
         </div>
 
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mt-6 leading-[0.95] text-white animate-slide-up">
-          Naveen <br />
+          Naveen{" "}
           <span className="bg-gradient-to-r from-cyan-400 via-teal-400 to-indigo-400 bg-clip-text text-transparent">
             S
           </span>
