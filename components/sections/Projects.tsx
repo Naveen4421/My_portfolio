@@ -1,4 +1,5 @@
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import Tilt3D from "@/components/Tilt3D";
 
 export default function Projects() {
   const projects = [
@@ -62,46 +63,48 @@ export default function Projects() {
                   <div className="w-[2px] h-6 bg-gradient-to-b from-cyan-400 to-zinc-800 -mt-6 mb-4 hidden lg:block" />
 
                 {/* Project Card */}
-                <div className="group p-6 border border-zinc-800 rounded-2xl bg-[#08080a]/80 backdrop-blur-md hover:bg-[#0a0a0c] hover:border-cyan-500/50 hover:shadow-[0_0_25px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-[280px] w-full">
-                  <div>
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors text-white truncate">
-                      {project.title}
-                    </h3>
-                    
-                    <p className="text-sm text-gray-400 mb-4 line-clamp-3 leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  <div className="mt-auto">
-                    <div className="flex flex-wrap gap-1.5 mb-4">
-                      {project.tags.map(tag => (
-                        <span key={tag} className="text-[10px] font-mono px-2 py-0.5 bg-zinc-900 border border-zinc-800 rounded text-gray-300">
-                          {tag}
-                        </span>
-                      ))}
+                <Tilt3D className="w-full" maxTilt={10}>
+                  <div className="group p-6 border border-zinc-800 rounded-2xl bg-[#08080a]/80 backdrop-blur-md hover:bg-[#0a0a0c] hover:border-cyan-500/50 hover:shadow-[0_0_25px_rgba(34,211,238,0.15)] transition-all duration-300 flex flex-col h-[280px] w-full">
+                    <div>
+                      <h3 className="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors text-white truncate">
+                        {project.title}
+                      </h3>
+                      
+                      <p className="text-sm text-gray-400 mb-4 line-clamp-3 leading-relaxed">
+                        {project.description}
+                      </p>
                     </div>
 
-                    <div className="flex items-center gap-4">
-                      <a 
-                        href={project.github} 
-                        target="_blank" 
-                        className="flex items-center gap-2 text-xs font-medium text-gray-400 hover:text-white transition-colors hover:underline"
-                      >
-                        <FaGithub className="text-sm" /> Code
-                      </a>
-                      {project.link !== "#" && (
+                    <div className="mt-auto">
+                      <div className="flex flex-wrap gap-1.5 mb-4">
+                        {project.tags.map(tag => (
+                          <span key={tag} className="text-[10px] font-mono px-2 py-0.5 bg-zinc-900 border border-zinc-800 rounded text-gray-300">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex items-center gap-4">
                         <a 
-                          href={project.link} 
+                          href={project.github} 
                           target="_blank" 
                           className="flex items-center gap-2 text-xs font-medium text-gray-400 hover:text-white transition-colors hover:underline"
                         >
-                          <FaExternalLinkAlt className="text-[10px]" /> Live Demo
+                          <FaGithub className="text-sm" /> Code
                         </a>
-                      )}
+                        {project.link !== "#" && (
+                          <a 
+                            href={project.link} 
+                            target="_blank" 
+                            className="flex items-center gap-2 text-xs font-medium text-gray-400 hover:text-white transition-colors hover:underline"
+                          >
+                            <FaExternalLinkAlt className="text-[10px]" /> Live Demo
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Tilt3D>
               </div>
             );
           })}

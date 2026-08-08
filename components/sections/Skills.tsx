@@ -1,5 +1,6 @@
 import { FaReact, FaNodeJs, FaDocker, FaAws, FaGitAlt, FaJenkins, FaTerminal } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiTypescript, SiMongodb, SiMysql, SiKubernetes, SiPostgresql, SiTerraform, SiAnsible, SiPrometheus, SiGrafana, SiGithubactions, SiLinux } from "react-icons/si";
+import Tilt3D from "@/components/Tilt3D";
 
 export default function Skills() {
   const categories = [
@@ -50,20 +51,21 @@ export default function Skills() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {categories.map((category, index) => (
-            <div 
-              key={index} 
-              className="p-6 border border-zinc-800 rounded-2xl bg-[#08080a]/80 backdrop-blur-md hover:bg-[#0a0a0c] hover:border-zinc-700 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
-            >
-              <h3 className="text-xl font-bold mb-6 text-center border-b border-zinc-800 pb-2 text-white">{category.title}</h3>
-              <div className="space-y-4">
-                {category.skills.map((skill) => (
-                  <div key={skill.name} className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition">
-                    <span className="text-2xl">{skill.icon}</span>
-                    <span className="font-medium text-gray-300">{skill.name}</span>
-                  </div>
-                ))}
+            <Tilt3D key={index} className="w-full h-full" maxTilt={8}>
+              <div 
+                className="p-6 border border-zinc-800 rounded-2xl bg-[#08080a]/80 backdrop-blur-md hover:bg-[#0a0a0c] hover:border-zinc-700 transition-all duration-300 hover:shadow-2xl h-full"
+              >
+                <h3 className="text-xl font-bold mb-6 text-center border-b border-zinc-800 pb-2 text-white">{category.title}</h3>
+                <div className="space-y-4">
+                  {category.skills.map((skill) => (
+                    <div key={skill.name} className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition">
+                      <span className="text-2xl">{skill.icon}</span>
+                      <span className="font-medium text-gray-300">{skill.name}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </Tilt3D>
           ))}
         </div>
       </div>

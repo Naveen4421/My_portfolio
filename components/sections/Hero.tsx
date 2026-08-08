@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import { FaGithub, FaLinkedin, FaEye, FaPaperPlane } from "react-icons/fa";
 import Link from "next/link";
+import ThreeBackground from "@/components/ThreeBackground";
+import Tilt3D from "@/components/Tilt3D";
 
 export default function Hero() {
   const [text, setText] = useState("");
@@ -173,6 +175,9 @@ export default function Hero() {
 
   return (
     <section id="hero" className="min-h-screen snap-start flex flex-col md:flex-row justify-center items-center p-6 md:p-16 gap-12 relative overflow-hidden bg-grid">
+      {/* 3D Network/Constellation Background */}
+      <ThreeBackground />
+
       {/* Background Gradient Glow */}
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] -z-10 animate-pulse" />
 
@@ -223,40 +228,42 @@ export default function Hero() {
 
       {/* Right Terminal Card */}
       <div className="flex-1 flex justify-center items-center w-full max-w-md z-10 animate-slide-up [animation-delay:400ms]">
-        <div className="border border-zinc-800 bg-[#08080a]/90 backdrop-blur-md p-6 rounded-2xl w-full shadow-2xl font-mono text-sm text-gray-300 relative group transition hover:border-zinc-700">
-          <div className="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
-            <div className="flex gap-2">
-              <span className="w-3 h-3 rounded-full bg-red-500/80" />
-              <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
-              <span className="w-3 h-3 rounded-full bg-green-500/80" />
-            </div>
-            <span className="text-xs text-zinc-500">naveen@infra ~</span>
-          </div>
-
-          <div className="max-h-[260px] overflow-y-auto pr-1 space-y-4 scrollbar-thin scrollbar-thumb-zinc-800 text-left">
-            {history.map((item, index) => (
-              <div key={index}>
-                <div className="flex items-center gap-1">
-                  <span className="text-emerald-400 font-bold">$ </span>
-                  <span className="text-zinc-100">{item.cmd}</span>
-                </div>
-                {item.result}
+        <Tilt3D className="w-full shadow-2xl" maxTilt={8}>
+          <div className="border border-zinc-800 bg-[#08080a]/90 backdrop-blur-md p-6 rounded-2xl w-full font-mono text-sm text-gray-300 relative group transition hover:border-zinc-700">
+            <div className="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
+              <div className="flex gap-2">
+                <span className="w-3 h-3 rounded-full bg-red-500/80" />
+                <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                <span className="w-3 h-3 rounded-full bg-green-500/80" />
               </div>
-            ))}
+              <span className="text-xs text-zinc-500">naveen@infra ~</span>
+            </div>
 
-            <form onSubmit={handleCommand} className="flex items-center gap-1 mt-2">
-              <span className="text-emerald-400 font-bold">$ </span>
-              <input
-                type="text"
-                value={inputVal}
-                onChange={(e) => setInputVal(e.target.value)}
-                className="flex-1 bg-transparent text-zinc-100 focus:outline-none border-none p-0 text-sm font-mono placeholder-zinc-700"
-                placeholder="type 'help'..."
-              />
-            </form>
-            <div ref={terminalEndRef} />
+            <div className="max-h-[260px] overflow-y-auto pr-1 space-y-4 scrollbar-thin scrollbar-thumb-zinc-800 text-left">
+              {history.map((item, index) => (
+                <div key={index}>
+                  <div className="flex items-center gap-1">
+                    <span className="text-emerald-400 font-bold">$ </span>
+                    <span className="text-zinc-100">{item.cmd}</span>
+                  </div>
+                  {item.result}
+                </div>
+              ))}
+
+              <form onSubmit={handleCommand} className="flex items-center gap-1 mt-2">
+                <span className="text-emerald-400 font-bold">$ </span>
+                <input
+                  type="text"
+                  value={inputVal}
+                  onChange={(e) => setInputVal(e.target.value)}
+                  className="flex-1 bg-transparent text-zinc-100 focus:outline-none border-none p-0 text-sm font-mono placeholder-zinc-700"
+                  placeholder="type 'help'..."
+                />
+              </form>
+              <div ref={terminalEndRef} />
+            </div>
           </div>
-        </div>
+        </Tilt3D>
       </div>
     </section>
   );
