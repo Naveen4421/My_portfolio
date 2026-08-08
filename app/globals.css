@@ -421,7 +421,7 @@ body[data-theme="light"] .console {
 /* Body: sidebar + content as two SEPARATE panels */
 .console-body {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 280px 1fr;
   gap: 20px;
   align-items: start;
 }
@@ -499,8 +499,8 @@ body[data-theme="light"] .sidebar {
 .side-nav button .nav-txt, .side-nav a .nav-txt {
   flex-grow: 1;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: visible;
+  text-overflow: unset;
 }
 
 .side-nav button .nav-dot, .side-nav a .nav-dot {

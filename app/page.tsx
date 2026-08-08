@@ -42,6 +42,15 @@ const translations = {
     infraTitle: "Stack Snapshot",
     infraSub: "Multi-service Docker Compose deployment on a dedicated GPU server (sietllm, RTX 6000 Ada). PostgreSQL, Redis, RabbitMQ, and Kong route traffic to Node/Express microservices, monitored via a self-hosted Grafana + Loki stack, accessed remotely over Tailscale.",
     contactTitle: "Get in touch",
+    header: {
+      overview: { title: "Naveen S", role: "DevOps Cloud Engineer", tag: "engineer/01" },
+      projects: { title: "Projects Portfolio", role: "Production Infrastructure & Platforms", tag: "engineer/01/projects" },
+      credentials: { title: "Certifications", role: "Verified Credentials & Badges", tag: "engineer/01/credentials" },
+      blog: { title: "Operator Blog", role: "System Build Logs & Notes", tag: "engineer/01/blog" },
+      terminal: { title: "Terminal Console", role: "Interactive Sandbox Environment", tag: "engineer/01/terminal" },
+      infra: { title: "System Infrastructure", role: "sietllm Core Services Topology", tag: "engineer/01/infrastructure" },
+      contact: { title: "Get In Touch", role: "ssh, email, & social links", tag: "engineer/01/contact" },
+    }
   },
   kn: {
     about: "ಪರಿಚಯ",
@@ -62,6 +71,15 @@ const translations = {
     infraTitle: "ಮೂಲಸೌಕರ್ಯ ಸ್ನ್ಯಾಪ್‌ಶಾಟ್",
     infraSub: "ಡೆಡಿಕೇಟೆಡ್ ಜಿಪಿಯು ಸರ್ವರ್‌ನಲ್ಲಿ ಮಲ್ಟಿ-ಸರ್ವೀಸ್ ಡಾಕರ್ ಕಂಪೋಸ್ ನಿಯೋಜನೆ. Tailscale ಮತ್ತು Grafana ಮೂಲಕ ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲಾಗಿದೆ.",
     contactTitle: "ಸಂಪರ್ಕಿಸಿ",
+    header: {
+      overview: { title: "ನವೀನ್ ಎಸ್", role: "ಡೆವಲಪರ್ ಕ್ಲೌಡ್ ಇಂಜಿನಿಯರ್", tag: "engineer/01" },
+      projects: { title: "ಯೋಜನೆಗಳ ಪೋರ್ಟ್‌ಫೋಲಿಯೋ", role: "ಉತ್ಪಾದನಾ ಮೂಲಸೌಕರ್ಯ ಮತ್ತು ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳು", tag: "engineer/01/projects" },
+      credentials: { title: "ಪ್ರಮಾಣಪತ್ರಗಳು", role: "ಪರಿಶೀಲಿಸಿದ ರುಜುವಾತುಗಳು ಮತ್ತು ಬ್ಯಾಡ್ಜ್‌ಗಳು", tag: "engineer/01/credentials" },
+      blog: { title: "ಆಪರೇಟರ್ ಬ್ಲಾಗ್", role: "ಸಿಸ್ಟಮ್ ಬಿಲ್ಡ್ ಲಾಗ್‌ಗಳು ಮತ್ತು ಟಿಪ್ಪಣಿಗಳು", tag: "engineer/01/blog" },
+      terminal: { title: "ಟರ್ಮಿನಲ್ ಕನ್ಸೋಲ್", role: "ಸ್ಯಾಂಡ್‌ಬಾಕ್ಸ್ ಪರಿಸರ", tag: "engineer/01/terminal" },
+      infra: { title: "ಸಿಸ್ಟಮ್ ಮೂಲಸೌಕರ್ಯ", role: "ಕೋರೆ ಸೇವೆಗಳ ಟೋಪೋಲಜಿ", tag: "engineer/01/infrastructure" },
+      contact: { title: "ಸಂಪರ್ಕಿಸಿ", role: "ಇಮೇಲ್ ಮತ್ತು ಸಾಮಾಜಿಕ ಲಿಂಕ್‌ಗಳು", tag: "engineer/01/contact" },
+    }
   }
 };
 
@@ -90,6 +108,12 @@ export default function Home() {
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
   }, [theme]);
+
+  // Sync tab page title dynamically
+  useEffect(() => {
+    const sectionName = activeSection === "overview" ? "Overview" : activeSection.charAt(0).toUpperCase() + activeSection.slice(1);
+    document.title = `Naveen — ${sectionName}`;
+  }, [activeSection]);
 
   // Listen to keyboard shortcut Ctrl+K
   useEffect(() => {
@@ -143,7 +167,7 @@ export default function Home() {
               <span />
               <span />
             </div>
-            <span className="console-label">operator console</span>
+            <span className="console-label">operator console : ~/{activeSection}</span>
           </div>
 
           <div className="console-header">
@@ -153,9 +177,15 @@ export default function Home() {
                 <div className="avatar-inner">N</div>
               </div>
               <div className="profile-text">
-                <div className="name font-sans">Naveen S</div>
-                <div className="role text-slate-500 font-medium">DevOps Cloud Engineer</div>
-                <div className="tag font-mono">engineer/01</div>
+                <div className="name font-sans">
+                  {t.header[activeSection as keyof typeof t.header]?.title || t.header.overview.title}
+                </div>
+                <div className="role text-slate-500 font-medium">
+                  {t.header[activeSection as keyof typeof t.header]?.role || t.header.overview.role}
+                </div>
+                <div className="tag font-mono">
+                  {t.header[activeSection as keyof typeof t.header]?.tag || t.header.overview.tag}
+                </div>
               </div>
             </div>
 
