@@ -1,269 +1,84 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { FaGithub, FaLinkedin, FaEye, FaPaperPlane } from "react-icons/fa";
-import Link from "next/link";
-import ThreeBackground from "@/components/ThreeBackground";
-import Tilt3D from "@/components/Tilt3D";
+import { FaFileDownload } from "react-icons/fa";
 
 export default function Hero() {
-  const [text, setText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
-
-  const [inputVal, setInputVal] = useState("");
-  const [history, setHistory] = useState<Array<{ cmd: string; result: React.ReactNode }>>([
-    { cmd: "whoami", result: <div className="text-cyan-400 mt-1">DevOps & Cloud Engineer</div> },
-    { 
-      cmd: "cat stats.yml", 
-      result: (
-        <div className="pl-4 mt-1 space-y-1 text-zinc-400">
-          <div>
-            <span className="text-zinc-500">experience:</span> <span className="text-cyan-400">fresher</span>
-          </div>
-          <div>
-            <span className="text-zinc-500">clusters:</span> <span className="text-cyan-400">10+ Kubernetes</span>
-          </div>
-          <div>
-            <span className="text-zinc-500">uptime:</span> <span className="text-cyan-400">99.99%</span>
-          </div>
-          <div>
-            <span className="text-zinc-500">cost_saved:</span> <span className="text-cyan-400">$30K</span>
-          </div>
-          <div>
-            <span className="text-zinc-500">pipelines:</span> <span className="text-cyan-400">4+ Automated</span>
-          </div>
-        </div>
-      )
-    },
-    { cmd: "echo $STATUS", result: <div className="text-emerald-400 mt-1">open_to_opportunities: true</div> }
-  ]);
-
-  const terminalEndRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [history]);
-
-  const handleCommand = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const fullCmd = inputVal.trim();
-    if (!fullCmd) return;
-
-    const parts = fullCmd.split(/\s+/);
-    const cmd = parts[0].toLowerCase();
-    const args = parts.slice(1);
-
-    let result: React.ReactNode = null;
-
-    if (cmd === "help") {
-      result = (
-        <div className="text-zinc-400 mt-1 space-y-1">
-          <div>Available commands:</div>
-          <div className="pl-2">- <span className="text-cyan-400">ls</span>: List files</div>
-          <div className="pl-2">- <span className="text-cyan-400">cat &lt;file&gt;</span>: View file contents</div>
-          <div className="pl-2">- <span className="text-cyan-400">whoami</span>: Display role information</div>
-          <div className="pl-2">- <span className="text-cyan-400">clear</span>: Clear console history</div>
-        </div>
-      );
-    } else if (cmd === "ls") {
-      result = (
-        <div className="text-cyan-400 mt-1 font-semibold space-x-4">
-          <span>stats.yml</span>
-          <span>skills.txt</span>
-          <span>readme.md</span>
-        </div>
-      );
-    } else if (cmd === "cat") {
-      if (args.length === 0) {
-        result = (
-          <div className="text-red-400 mt-1">
-            cat: missing file operand<br />
-            Try &apos;cat stats.yml&apos; or &apos;ls&apos; to see available files.
-          </div>
-        );
-      } else {
-        const file = args[0].toLowerCase();
-        if (file === "stats.yml" || file === "stats") {
-          result = (
-            <div className="pl-4 mt-1 space-y-1 text-zinc-400">
-              <div>
-                <span className="text-zinc-500">experience:</span> <span className="text-cyan-400">fresher</span>
-              </div>
-              <div>
-                <span className="text-zinc-500">clusters:</span> <span className="text-cyan-400">10+ Kubernetes</span>
-              </div>
-              <div>
-                <span className="text-zinc-500">uptime:</span> <span className="text-cyan-400">99.99%</span>
-              </div>
-              <div>
-                <span className="text-zinc-500">cost_saved:</span> <span className="text-cyan-400">$30K</span>
-              </div>
-              <div>
-                <span className="text-zinc-500">pipelines:</span> <span className="text-cyan-400">4+ Automated</span>
-              </div>
-            </div>
-          );
-        } else if (file === "skills.txt" || file === "skills") {
-          result = (
-            <div className="text-zinc-400 mt-1 space-y-1 pl-2">
-              <div>- Containers: Docker, Kubernetes</div>
-              <div>- CI/CD: Jenkins, GitHub Actions</div>
-              <div>- Cloud: AWS, GCP</div>
-              <div>- Automation: Terraform, Ansible</div>
-              <div>- Coding: Python, TypeScript, Bash</div>
-            </div>
-          );
-        } else if (file === "readme.md" || file === "readme") {
-          result = (
-            <div className="text-zinc-400 mt-1 pl-2 leading-relaxed">
-              Hi, I&apos;m Naveen S, a DevOps &amp; Cloud Engineer. <br />
-              I build scalable, automated, and self-healing systems. <br />
-              Type &apos;help&apos; to view all commands.
-            </div>
-          );
-        } else {
-          result = <div className="text-red-400 mt-1">cat: {args[0]}: No such file or directory</div>;
-        }
-      }
-    } else if (cmd === "whoami") {
-      result = <div className="text-cyan-400 mt-1">DevOps & Cloud Engineer</div>;
-    } else if (cmd === "clear") {
-      setHistory([]);
-      setInputVal("");
-      return;
-    } else {
-      result = <div className="text-red-400 mt-1">bash: command not found: {cmd}</div>;
-    }
-
-    setHistory(prev => [...prev, { cmd: fullCmd, result }]);
-    setInputVal("");
-  };
-
-  const words = [
-    "Kubernetes Expert (10+ Clusters)",
-    "CI/CD Pipeline Architect",
-    "Cloud Automation Engineer",
-    "Site Reliability Specialist"
-  ];
-
-  useEffect(() => {
-    const handleType = () => {
-      const i = loopNum % words.length;
-      const fullWord = words[i];
-
-      if (isDeleting) {
-        setText(fullWord.substring(0, text.length - 1));
-        setTypingSpeed(50);
-      } else {
-        setText(fullWord.substring(0, text.length + 1));
-        setTypingSpeed(100);
-      }
-
-      if (!isDeleting && text === fullWord) {
-        setTimeout(() => setIsDeleting(true), 2000);
-      } else if (isDeleting && text === "") {
-        setIsDeleting(false);
-        setLoopNum(loopNum + 1);
-      }
-    };
-
-    const timer = setTimeout(handleType, typingSpeed);
-    return () => clearTimeout(timer);
-  }, [text, isDeleting, loopNum, typingSpeed]);
-
   return (
-    <section id="hero" className="min-h-screen snap-start flex flex-col md:flex-row justify-center items-center p-6 md:p-16 gap-12 relative overflow-hidden bg-grid">
-      {/* 3D Network/Constellation Background */}
-      <ThreeBackground />
-
-      {/* Background Gradient Glow */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] -z-10 animate-pulse" />
-
-      {/* Left Content */}
-      <div className="flex-1 flex flex-col justify-center max-w-xl z-10">
-        <div className="flex items-center gap-2 border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full text-xs font-mono font-medium tracking-wide uppercase self-start animate-fade-in">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-          Open to Opportunities
+    <section id="hero" className="w-full py-20 md:py-32 max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12 relative bg-transparent">
+      {/* Left content block */}
+      <div className="flex-1 flex flex-col justify-center text-left">
+        <div className="text-xs font-bold uppercase tracking-widest text-brand-blue mb-3">
+          Naveen S &bull; DevOps & Cloud Engineer
         </div>
-
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mt-6 leading-[0.95] text-white animate-slide-up">
-          Naveen{" "}
-          <span className="bg-gradient-to-r from-cyan-400 via-teal-400 to-indigo-400 bg-clip-text text-transparent">
-            S
-          </span>
+        
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-heading mb-6 leading-tight font-sans">
+          DevOps Cloud Engineer Portfolio
         </h1>
 
-        <p className="text-lg md:text-xl text-gray-400 mt-6 max-w-lg leading-relaxed font-light animate-slide-up [animation-delay:200ms]">
-          I build infrastructure that doesn&apos;t break — and scale systems that shouldn&apos;t slow down.
+        <p className="text-sm md:text-base text-slate-600 mb-8 max-w-2xl leading-relaxed font-sans">
+          I build high-availability, automated, and secure cloud infrastructure. Specializing in container orchestration with **Kubernetes**, enterprise-grade **AWS Landing Zones**, automated **CI/CD pipelines**, and cost-efficient **serverless architectures**. Backed by clean Infrastructure as Code (IaC) principles.
         </p>
 
-        <div className="mt-6 border border-emerald-500/20 text-emerald-400 bg-emerald-500/5 px-4 py-2 rounded-lg font-mono text-sm inline-flex items-center gap-1 self-start animate-slide-up [animation-delay:400ms]">
-          <span>{text}</span>
-          <span className="w-1.5 h-4 bg-emerald-400 animate-blink" />
-        </div>
-
-        <div className="mt-8 flex flex-wrap gap-4 animate-slide-up [animation-delay:600ms]">
+        {/* Action button CTAs */}
+        <div className="flex flex-wrap items-center gap-4">
           <a
-            href="#contact"
-            className="px-5 py-2.5 bg-cyan-400 text-black hover:bg-cyan-300 rounded-lg text-sm font-semibold flex items-center gap-2 transition hover:scale-105 shadow-[0_0_15px_rgba(34,211,238,0.3)]"
+            href="/resume/Naveen_Resume.pdf"
+            download
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-blue text-white hover:bg-blue-700 rounded-[4px] text-xs md:text-sm font-semibold transition-colors duration-150 cursor-pointer"
           >
-            <FaPaperPlane /> Get In Touch
+            <FaFileDownload className="text-xs" /> Download CV
           </a>
-          <Link
-            href="/resume"
-            className="px-5 py-2.5 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-white rounded-lg text-sm font-medium flex items-center gap-2 transition hover:scale-105"
-          >
-            <FaEye /> View Resume
-          </Link>
           <a
             href="#projects"
-            className="px-5 py-2.5 bg-zinc-900/50 border border-zinc-800/50 hover:border-zinc-700 text-zinc-400 hover:text-white rounded-lg text-sm font-medium flex items-center gap-2 transition hover:scale-105"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-brand-blue text-brand-blue hover:bg-slate-50 rounded-[4px] text-xs md:text-sm font-semibold transition-colors duration-150 cursor-pointer"
           >
-            View Work
+            View Projects & Certifications
           </a>
         </div>
+
+        {/* Monospace signature detail */}
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          <span className="text-[10px] font-mono font-bold bg-slate-100 border border-slate-200 rounded px-2.5 py-1 text-slate-600">
+            npx naveen-infra
+          </span>
+          <span className="text-xs text-slate-500">
+            &bull; Run in your local terminal to see interactive summary
+          </span>
+        </div>
       </div>
-
-      {/* Right Terminal Card */}
-      <div className="flex-1 flex justify-center items-center w-full max-w-md z-10 animate-slide-up [animation-delay:400ms]">
-        <Tilt3D className="w-full shadow-2xl" maxTilt={8}>
-          <div className="border border-zinc-800 bg-[#08080a]/90 backdrop-blur-md p-6 rounded-2xl w-full font-mono text-sm text-gray-300 relative group transition hover:border-zinc-700">
-            <div className="flex items-center justify-between border-b border-zinc-800 pb-3 mb-4">
-              <div className="flex gap-2">
-                <span className="w-3 h-3 rounded-full bg-red-500/80" />
-                <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                <span className="w-3 h-3 rounded-full bg-green-500/80" />
-              </div>
-              <span className="text-xs text-zinc-500">naveen@infra ~</span>
-            </div>
-
-            <div className="max-h-[260px] overflow-y-auto pr-1 space-y-4 scrollbar-thin scrollbar-thumb-zinc-800 text-left">
-              {history.map((item, index) => (
-                <div key={index}>
-                  <div className="flex items-center gap-1">
-                    <span className="text-emerald-400 font-bold">$ </span>
-                    <span className="text-zinc-100">{item.cmd}</span>
-                  </div>
-                  {item.result}
-                </div>
-              ))}
-
-              <form onSubmit={handleCommand} className="flex items-center gap-1 mt-2">
-                <span className="text-emerald-400 font-bold">$ </span>
-                <input
-                  type="text"
-                  value={inputVal}
-                  onChange={(e) => setInputVal(e.target.value)}
-                  className="flex-1 bg-transparent text-zinc-100 focus:outline-none border-none p-0 text-sm font-mono placeholder-zinc-700"
-                  placeholder="type 'help'..."
-                />
-              </form>
-              <div ref={terminalEndRef} />
+      
+      {/* Right Content block (Infrastructure-as-Code Spec card mockup) */}
+      <div className="flex-1 hidden md:flex justify-end items-center">
+        <div className="w-full max-w-[380px] border border-slate-200/80 rounded-lg p-6 bg-white shadow-[0_2px_4px_rgba(0,0,0,0.01)] font-mono text-[11px] text-slate-600">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+            <span className="text-slate-400 font-bold text-[9px] uppercase tracking-wider">AWS landing-zone config</span>
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[9px] text-slate-400 uppercase tracking-widest font-semibold">Active State</span>
             </div>
           </div>
-        </Tilt3D>
+          <div className="space-y-2 text-left">
+            <div><span className="text-brand-blue">provider</span> &quot;aws&quot; &#123; region = &quot;us-east-1&quot; &#125;</div>
+            <div className="text-slate-400 mt-1 pl-2"># Set up secure hub and spoke networks</div>
+            <div>
+              <span className="text-indigo-600">module</span> &quot;landing_zone&quot; &#123;
+            </div>
+            <div className="pl-4">source = &quot;aws-ia/landing-zone-accelerator/aws&quot;</div>
+            <div className="pl-4">version = &quot;~&gt; 1.5.0&quot;</div>
+            <div className="pl-4">enable_transit_gateway = <span className="text-amber-600">true</span></div>
+            <div>&#125;</div>
+            <div className="pt-1">
+              <span className="text-indigo-600">module</span> &quot;k8s_clusters&quot; &#123;
+            </div>
+            <div className="pl-4">cluster_name = &quot;production-control-plane&quot;</div>
+            <div className="pl-4">subnets      = module.landing_zone.private_subnets</div>
+            <div>&#125;</div>
+            <div className="border-t border-slate-100 pt-3 mt-4 text-[10px] text-slate-400 flex justify-between">
+              <span>Terraform Apply: 57 created.</span>
+              <span className="text-brand-blue font-bold">100% OK</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

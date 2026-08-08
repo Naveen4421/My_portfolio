@@ -78,42 +78,42 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="min-h-screen snap-start flex flex-col justify-start items-center pt-20 pb-6 px-6 bg-grid bg-[#030303] text-white relative overflow-hidden">
-      {/* Background Gradient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[100px] -z-10 animate-pulse" />
+    <section id="contact" className="w-full py-16 max-w-5xl mx-auto px-6 relative bg-transparent">
+      
+      <div className="w-full z-10 border-t border-slate-200/60 pt-16">
+        {/* Section label */}
+        <span className="text-xs font-semibold uppercase tracking-wider text-brand-blue mb-4 block">
+          Get in Touch
+        </span>
 
-      <div className="max-w-6xl w-full z-10 px-4 md:px-8">
-        {/* Category Tag */}
-        <div className="text-center mb-2">
-          <span className="text-xs font-mono tracking-widest text-cyan-400 font-semibold uppercase">// Contact</span>
-        </div>
-
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-center text-white">Let&apos;s Work Together</h2>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12 text-left text-neutral-heading font-sans">
+          Let&apos;s Work Together
+        </h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Column: Info & Social Cards */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             <div>
-              <h3 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-white">
-                Let&apos;s build infrastructure that doesn&apos;t sleep.
+              <h3 className="text-xl font-bold tracking-tight mb-4 text-neutral-heading">
+                Build reliable cloud infrastructure together.
               </h3>
-              <p className="text-zinc-400 font-light leading-relaxed text-sm md:text-base">
-                Available for leadership roles, consulting, and technical collaborations across IST, CET/CEST, and global time zones. Open to international travel.
+              <p className="text-slate-500 leading-relaxed text-sm font-sans">
+                Available for Cloud and DevOps internships, junior roles, and technical collaborations. Let&apos;s automate your workflows and optimize your scaling challenges.
               </p>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3.5">
               {/* Email Card */}
               <a 
                 href="mailto:naveen.siddappa44@gmail.com"
-                className="flex items-center gap-4 p-4 border border-zinc-800/60 rounded-xl bg-[#08080a]/80 hover:bg-[#0c0c0f] hover:border-zinc-700/60 transition duration-300 group"
+                className="flex items-center gap-4 p-4 border border-slate-200/80 rounded-lg bg-white hover:bg-slate-50 hover:border-slate-300 transition duration-150 group"
               >
-                <div className="w-11 h-11 rounded-lg bg-zinc-900 border border-zinc-800/80 flex items-center justify-center text-xl text-cyan-400 group-hover:text-cyan-300 transition">
+                <div className="w-10 h-10 rounded bg-blue-50 border border-blue-100 flex items-center justify-center text-lg text-brand-blue group-hover:scale-105 transition">
                   <FaEnvelope />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-white">Email</div>
-                  <div className="text-xs text-zinc-500 mt-0.5 group-hover:text-cyan-400 transition truncate">naveen.siddappa44@gmail.com</div>
+                  <div className="text-xs font-bold text-slate-800 uppercase tracking-wider">Email</div>
+                  <div className="text-xs text-slate-500 mt-0.5 group-hover:text-brand-blue transition truncate font-mono">naveen.siddappa44@gmail.com</div>
                 </div>
               </a>
 
@@ -122,14 +122,14 @@ export default function Contact() {
                 href="https://linkedin.com/in/naveen-s-44ns"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 border border-zinc-800/60 rounded-xl bg-[#08080a]/80 hover:bg-[#0c0c0f] hover:border-zinc-700/60 transition duration-300 group"
+                className="flex items-center gap-4 p-4 border border-slate-200/80 rounded-lg bg-white hover:bg-slate-50 hover:border-slate-300 transition duration-150 group"
               >
-                <div className="w-11 h-11 rounded-lg bg-zinc-900 border border-zinc-800/80 flex items-center justify-center text-xl text-cyan-400 group-hover:text-cyan-300 transition">
+                <div className="w-10 h-10 rounded bg-blue-50 border border-blue-100 flex items-center justify-center text-lg text-brand-blue group-hover:scale-105 transition">
                   <FaLinkedin />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-white">LinkedIn</div>
-                  <div className="text-xs text-zinc-500 mt-0.5 group-hover:text-cyan-400 transition">Connect with me</div>
+                  <div className="text-xs font-bold text-slate-800 uppercase tracking-wider">LinkedIn</div>
+                  <div className="text-xs text-slate-500 mt-0.5 group-hover:text-brand-blue transition">Connect on LinkedIn</div>
                 </div>
               </a>
 
@@ -138,14 +138,14 @@ export default function Contact() {
                 href="https://github.com/Naveen4421"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 border border-zinc-800/60 rounded-xl bg-[#08080a]/80 hover:bg-[#0c0c0f] hover:border-zinc-700/60 transition duration-300 group"
+                className="flex items-center gap-4 p-4 border border-slate-200/80 rounded-lg bg-white hover:bg-slate-50 hover:border-slate-300 transition duration-150 group"
               >
-                <div className="w-11 h-11 rounded-lg bg-zinc-900 border border-zinc-800/80 flex items-center justify-center text-xl text-cyan-400 group-hover:text-cyan-300 transition">
+                <div className="w-10 h-10 rounded bg-blue-50 border border-blue-100 flex items-center justify-center text-lg text-brand-blue group-hover:scale-105 transition">
                   <FaGithub />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-white">GitHub</div>
-                  <div className="text-xs text-zinc-500 mt-0.5 group-hover:text-cyan-400 transition">github.com/Naveen4421</div>
+                  <div className="text-xs font-bold text-slate-800 uppercase tracking-wider">GitHub</div>
+                  <div className="text-xs text-slate-500 mt-0.5 group-hover:text-brand-blue transition font-mono">github.com/Naveen4421</div>
                 </div>
               </a>
 
@@ -154,14 +154,14 @@ export default function Contact() {
                 href="https://wa.me/916360760312"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 border border-zinc-800/60 rounded-xl bg-[#08080a]/80 hover:bg-[#0c0c0f] hover:border-zinc-700/60 transition duration-300 group"
+                className="flex items-center gap-4 p-4 border border-slate-200/80 rounded-lg bg-white hover:bg-slate-50 hover:border-slate-300 transition duration-150 group"
               >
-                <div className="w-11 h-11 rounded-lg bg-zinc-900 border border-zinc-800/80 flex items-center justify-center text-xl text-cyan-400 group-hover:text-cyan-300 transition">
+                <div className="w-10 h-10 rounded bg-blue-50 border border-blue-100 flex items-center justify-center text-lg text-brand-blue group-hover:scale-105 transition">
                   <FaWhatsapp />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-white">WhatsApp</div>
-                  <div className="text-xs text-zinc-500 mt-0.5 group-hover:text-cyan-400 transition">+91 6360760312</div>
+                  <div className="text-xs font-bold text-slate-800 uppercase tracking-wider">WhatsApp</div>
+                  <div className="text-xs text-slate-500 mt-0.5 group-hover:text-brand-blue transition font-mono">+91 6360760312</div>
                 </div>
               </a>
             </div>
@@ -170,15 +170,15 @@ export default function Contact() {
           {/* Right Column: Contact Form / Terminal Simulation */}
           <div className="w-full">
             {status !== 'idle' ? (
-              <div className="p-6 border border-zinc-800/60 rounded-2xl bg-[#08080a]/90 backdrop-blur-md space-y-4 w-full h-[328px] font-mono text-xs text-gray-300 flex flex-col justify-between">
+              <div className="p-6 border border-slate-800 rounded-lg bg-slate-900 shadow-sm w-full h-[328px] font-mono text-xs text-gray-300 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between border-b border-zinc-800/60 pb-2 mb-3">
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
                     <div className="flex gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 animate-pulse" />
+                      <span className="w-2 h-2 rounded-full bg-red-500/85" />
+                      <span className="w-2 h-2 rounded-full bg-yellow-500/85" />
+                      <span className="w-2 h-2 rounded-full bg-emerald-500/85 animate-pulse" />
                     </div>
-                    <span className="text-[10px] text-zinc-500">contact_agent.sh</span>
+                    <span className="text-[9px] text-slate-500 uppercase tracking-widest font-semibold">contact_agent.sh</span>
                   </div>
                   
                   <div className="space-y-2 text-left">
@@ -187,9 +187,9 @@ export default function Contact() {
                         key={i} 
                         className={
                           log.startsWith('[SUCCESS]') 
-                            ? 'text-emerald-400 font-semibold' 
+                            ? 'text-emerald-400 font-bold' 
                             : log.startsWith('$') 
-                              ? 'text-zinc-400' 
+                              ? 'text-slate-400' 
                               : 'text-cyan-400'
                         }
                       >
@@ -212,7 +212,7 @@ export default function Contact() {
                       setStatus('idle');
                       setTerminalLogs([]);
                     }}
-                    className="w-full py-2 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-white rounded-lg text-xs font-mono transition cursor-pointer"
+                    className="w-full py-2 bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white rounded text-xs font-mono transition cursor-pointer"
                   >
                     $ reset_agent --force
                   </button>
@@ -221,10 +221,10 @@ export default function Contact() {
             ) : (
               <form 
                 onSubmit={handleSubmit}
-                className="p-6 border border-zinc-800/60 rounded-2xl bg-[#08080a]/90 backdrop-blur-md space-y-4 w-full"
+                className="p-6 border border-slate-200/80 rounded-lg bg-white space-y-4 w-full"
               >
                 <div>
-                  <label htmlFor="name" className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">
+                  <label htmlFor="name" className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
                     Name
                   </label>
                   <input
@@ -234,13 +234,13 @@ export default function Contact() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Your name"
-                    className="w-full px-4 py-3 bg-[#0c0c0f] border border-zinc-800 rounded-lg text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-400 transition"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-[4px] text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition font-sans"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">
-                    Email
+                  <label htmlFor="email" className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                    Email Address
                   </label>
                   <input
                     type="email"
@@ -249,12 +249,12 @@ export default function Contact() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@company.com"
-                    className="w-full px-4 py-3 bg-[#0c0c0f] border border-zinc-800 rounded-lg text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-400 transition"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-[4px] text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition font-sans"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">
+                  <label htmlFor="message" className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
                     Message
                   </label>
                   <textarea
@@ -264,15 +264,15 @@ export default function Contact() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Tell me about the role or project..."
-                    className="w-full px-4 py-3 bg-[#0c0c0f] border border-zinc-800 rounded-lg text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-400 transition resize-none"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-[4px] text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition resize-none font-sans"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3 bg-cyan-400 text-black hover:bg-cyan-300 rounded-lg text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition hover:scale-[1.01] shadow-[0_0_20px_rgba(34,211,238,0.25)] cursor-pointer"
+                  className="w-full py-2.5 bg-brand-blue text-white hover:bg-blue-700 rounded-[4px] text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
                 >
-                  <FaPaperPlane /> Send Message
+                  <FaPaperPlane className="text-[10px]" /> Send Message
                 </button>
               </form>
             )}
@@ -280,8 +280,8 @@ export default function Contact() {
         </div>
         
         {/* Footer */}
-        <footer className="mt-6 text-center text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Naveen S. All rights reserved.</p>
+        <footer className="mt-16 text-center text-xs text-slate-400 border-t border-slate-200/40 pt-8">
+          <p>© {new Date().getFullYear()} Naveen S &bull; DevOps Cloud Engineer Portfolio</p>
         </footer>
       </div>
     </section>

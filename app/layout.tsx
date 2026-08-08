@@ -1,43 +1,42 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond } from "next/font/google";
+import { Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-poppins",
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const cormorant = Cormorant_Garamond({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-cormorant",
-  weight: ["300", "400", "600", "700"],
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Naveen | Full-Stack & DevOps Engineer",
+  title: "Naveen | DevOps & Cloud Engineer Portfolio",
   description:
-    "Naveen – Full-Stack & DevOps Engineer skilled in React, Next.js, Docker, Kubernetes, CI/CD, and Cloud. Open to internships and entry-level roles.",
+    "Portfolio of Naveen – DevOps & Cloud Engineer skilled in AWS Landing Zones, Kubernetes orchestration, automated CI/CD pipelines, and serverless architectures.",
 
   keywords: [
     "Naveen Portfolio",
-    "Full Stack Developer",
     "DevOps Engineer",
-    "React Developer",
-    "Next.js Portfolio",
-    "Docker Kubernetes",
+    "Cloud Engineer",
+    "Kubernetes Specialist",
+    "AWS Architect",
+    "Terraform IaC",
     "CI/CD Engineer",
-    "DevOps Intern",
   ],
 
   authors: [{ name: "Naveen" }],
 
   openGraph: {
-    title: "Naveen | Full-Stack & DevOps Engineer",
+    title: "Naveen | DevOps & Cloud Engineer Portfolio",
     description:
-      "Portfolio of Naveen – Full-Stack & DevOps Engineer (React, Docker, Kubernetes, CI/CD).",
+      "Portfolio of Naveen – DevOps & Cloud Engineer (AWS, Kubernetes, Terraform, CI/CD).",
     url: "https://my-portfolio-vert-eight-15.vercel.app/",
     siteName: "Naveen Portfolio",
     images: [
@@ -54,9 +53,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Naveen | Full-Stack & DevOps Engineer",
+    title: "Naveen | DevOps & Cloud Engineer Portfolio",
     description:
-      "Full-Stack & DevOps Engineer skilled in React, Docker, Kubernetes, CI/CD.",
+      "DevOps & Cloud Engineer skilled in AWS, Kubernetes, Terraform, CI/CD.",
     images: ["/og-image.png"],
   },
 
@@ -74,14 +73,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${cormorant.variable} antialiased bg-background text-foreground`}
+        className={`${poppins.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground font-sans`}
       >
         <Navbar />
-        <main className="px-6 md:px-16 py-10">
+        <main className="min-h-screen">
           {children}
         </main>
       </body>
     </html>
   );
 }
-
