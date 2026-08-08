@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import MeshBackground from "@/components/MeshBackground";
 import TerminalSection from "@/components/sections/TerminalSection";
+import Tilt3D from "@/components/Tilt3D";
 import { 
   FaEnvelope, 
   FaLinkedin, 
@@ -103,6 +104,21 @@ export default function Home() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
+
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.message) return;
+    setIsSubmitting(true);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setIsSubmitting(false);
+    setFormSubmitted(true);
+    setFormData({ name: "", email: "", message: "" });
+    setTimeout(() => setFormSubmitted(false), 5000);
+  };
 
   // Sync theme attribute with body class
   useEffect(() => {
@@ -592,30 +608,131 @@ export default function Home() {
             {/* CONTACT SECTION */}
             <section className={activeSection === "contact" ? "active-section" : ""}>
               <span className="eyebrow-num">07 / CONTACT</span>
-              <h2 className="text-2xl font-bold font-sans text-text-primary mb-8">{t.contactTitle}</h2>
-              
-              <div className="contact-grid font-sans">
-                <div className="contact-card">
-                  <FaEnvelope />
-                  <div>
-                    <div className="c-label">Email</div>
-                    <div className="c-val font-mono text-xs">naveen.siddappa44@gmail.com</div>
-                  </div>
+              <h2 className="text-2xl font-bold font-sans text-text-primary mb-2">Contact<span className="dot">.</span></h2>
+              <div className="underline-bar" />
+              <p className="lead mb-6 text-slate-500">Have a project in mind or just want to say hi? Fill out the form below.</p>
+
+              <div className="mb-8 inline-flex items-center gap-2 border border-emerald-500/30 text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full text-xs font-mono font-medium tracking-wide uppercase">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                Available for projects
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 font-sans">
+                
+                {/* Left Card - Collaborate info */}
+                <div className="md:col-span-5 flex">
+                  <Tilt3D maxTilt={6} className="w-full">
+                    <div className="block-inner h-full flex flex-col justify-between" style={{ background: "var(--bg-panel)" }}>
+                      <div>
+                        <h3 className="text-xl font-bold text-text-primary mb-6">Let's collaborate</h3>
+                        
+                        <div className="space-y-4">
+                          <div className="flex items-center gap-3 text-text-secondary text-sm">
+                            <FaEnvelope className="text-accent-blue" />
+                            <span className="font-mono text-xs select-all">naveen.siddappa44@gmail.com</span>
+                          </div>
+                          <div className="flex items-center gap-3 text-text-secondary text-sm">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 text-accent-blue">
+                              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                              <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <span>Bangalore, India</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="mt-8 pt-6 border-t border-border">
+                        <span className="font-mono text-xs text-text-muted block mb-3 uppercase tracking-wider">Find me on</span>
+                        <div className="flex gap-2">
+                          <a href="https://github.com/Naveen4421" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-border hover:border-accent-blue hover:text-accent-blue rounded-md flex items-center justify-center text-text-secondary transition" aria-label="GitHub">
+                            <FaGithub />
+                          </a>
+                          <a href="https://linkedin.com/in/naveen-s-44ns" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-border hover:border-accent-blue hover:text-accent-blue rounded-md flex items-center justify-center text-text-secondary transition" aria-label="LinkedIn">
+                            <FaLinkedin />
+                          </a>
+                        </div>
+                        <div className="mt-6 flex items-center gap-2 text-text-muted text-xs">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 text-accent-green">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" />
+                          </svg>
+                          <span>Usually responds within 24 hours</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Tilt3D>
                 </div>
-                <div className="contact-card">
-                  <FaLinkedin />
-                  <div>
-                    <div className="c-label">LinkedIn</div>
-                    <div className="c-val">naveen-s-44ns</div>
-                  </div>
+
+                {/* Right Card - Form inputs */}
+                <div className="md:col-span-7 flex">
+                  <Tilt3D maxTilt={6} className="w-full">
+                    <div className="block-inner h-full w-full" style={{ background: "var(--bg-panel)" }}>
+                      <form onSubmit={handleFormSubmit} className="space-y-4">
+                        <div>
+                          <label htmlFor="name" className="block text-xs font-mono text-text-muted uppercase tracking-wider mb-2">Full Name</label>
+                          <input 
+                            type="text" 
+                            id="name"
+                            required
+                            placeholder="Full Name"
+                            value={formData.name}
+                            onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                            className="w-full px-4 py-3 rounded-md bg-bg-window border border-border text-text-primary text-sm focus:outline-none focus:border-accent-blue input-3d"
+                          />
+                        </div>
+
+                        <div>
+                          <label htmlFor="email" className="block text-xs font-mono text-text-muted uppercase tracking-wider mb-2">Email Address</label>
+                          <input 
+                            type="email" 
+                            id="email"
+                            required
+                            placeholder="Email Address"
+                            value={formData.email}
+                            onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                            className="w-full px-4 py-3 rounded-md bg-bg-window border border-border text-text-primary text-sm focus:outline-none focus:border-accent-blue input-3d"
+                          />
+                        </div>
+
+                        <div>
+                          <div className="flex justify-between items-center mb-2">
+                            <label htmlFor="message" className="block text-xs font-mono text-text-muted uppercase tracking-wider">Your Message</label>
+                            <span className="text-[10px] font-mono text-text-muted">{formData.message.length}/500</span>
+                          </div>
+                          <textarea 
+                            id="message"
+                            required
+                            rows={5}
+                            maxLength={500}
+                            placeholder="Your Message"
+                            value={formData.message}
+                            onChange={(e) => setFormData(prev => ({ ...prev, message: e.target.value }))}
+                            className="w-full px-4 py-3 rounded-md bg-bg-window border border-border text-text-primary text-sm focus:outline-none focus:border-accent-blue resize-none input-3d"
+                          />
+                        </div>
+
+                        {formSubmitted && (
+                          <div className="p-3 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs rounded-md font-medium">
+                            Message received! Thank you for getting in touch.
+                          </div>
+                        )}
+
+                        <button 
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="w-full py-3 rounded-md text-sm font-semibold flex items-center justify-center gap-2 btn-3d disabled:opacity-50 cursor-pointer"
+                        >
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="w-4 h-4">
+                            <line x1="22" y1="2" x2="11" y2="13" />
+                            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                          </svg>
+                          {isSubmitting ? "Sending..." : "Send Message"}
+                        </button>
+                      </form>
+                    </div>
+                  </Tilt3D>
                 </div>
-                <div className="contact-card">
-                  <FaGithub />
-                  <div>
-                    <div className="c-label">GitHub</div>
-                    <div className="c-val font-mono text-xs">github.com/Naveen4421</div>
-                  </div>
-                </div>
+
               </div>
             </section>
 
