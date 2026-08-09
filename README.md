@@ -1,67 +1,36 @@
-# Naveen's Portfolio
+# Naveen S — DevOps Cloud Engineer Portfolio
 
-Welcome to my personal portfolio project! This web application showcases my skills, projects, and experience as a Full-Stack & DevOps Engineer. It is built using **Next.js**, **Tailwind CSS**, and **React**.
+Welcome to my personal portfolio! This web application showcases my skills, projects, and experience as a DevOps Cloud Engineer. 
 
-## Prerequisites
+The portfolio is built as a highly optimized, standalone **single-file web application** styled as a dark "operator console". It is designed to be lightweight, incredibly fast, and visually distinct without the overhead of heavy frameworks.
 
-Before running the project locally, ensure you have the following installed on your machine:
+## 🚀 Key Features
+- **Operator Console Theme:** A sleek, terminal/dashboard aesthetic with floating panels and a low-poly mesh background.
+- **Interactive Sandbox Terminal:** A fully functioning mock CLI built in pure JavaScript that supports commands like `ls`, `cat`, `clear`, `date`, and `whoami`.
+- **Animated Topology Diagrams:** CSS-animated SVG infrastructure diagrams showcasing my CI/CD, gateway, runtime, and observability stacks.
+- **Theme Engine:** Built-in Light/Dark mode toggling managed by CSS variables and local state.
+- **Zero Build Step:** Entirely self-contained in a single `index.html` file. 
 
-- **Node.js**: Version 18 or higher is recommended.
-- **Package Manager**: `npm` (usually comes with Node.js), `yarn`, or `pnpm`.
+## 🛠 Tech Stack
+- **Structure:** Vanilla HTML5
+- **Styling:** Vanilla CSS (CSS Variables, Grid, Flexbox, Animations)
+- **Logic:** Vanilla JavaScript (DOM manipulation, state management, terminal parsing)
+- **Fonts:** Space Grotesk, Inter, and JetBrains Mono
 
-## Installation
+## 💻 Running Locally
+Because this project requires no frameworks, Node.js, or build steps, running it locally is as simple as opening the file in your browser:
 
-1.  **Unzip the project file** (if you haven't already).
-2.  Open your terminal and navigate to the project directory:
-    ```bash
-    cd NaveenPortfolio
-    ```
-3.  Install the dependencies:
-    ```bash
-    npm install
-    # or
-    yarn install
-    # or
-    pnpm install
-    ```
+1. Clone or download the repository.
+2. Open `index.html` in your web browser of choice.
+3. *That's it!*
 
-## Running the Project
+## 🌐 Deployment
+This portfolio is optimized for lightning-fast deployments on platforms like **Vercel**, **Netlify**, or **GitHub Pages**. Since it's purely static:
+1. Connect this repository to your preferred hosting provider.
+2. No build command or output directory configuration is needed. 
+3. The site will instantly deploy.
 
-To start the development server locally:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the portfolio.
-
-## Building for Production
-
-To create an optimized production build:
-
-```bash
-npm run build
-```
-
-To start the production server after building:
-
-```bash
-npm start
-```
-
-## Tech Stack
-
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Directory)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
-- **Language**: TypeScript
-
-## Configuration
-
-Currently, this project **does not require any `.env` file** to run locally. All configurations are self-contained.
-
-## Latest Update: SSH setup verified.
+## 📫 Contact
+- **Email:** naveen.siddappa44@gmail.com
+- **LinkedIn:** [naveen-s-44ns](https://linkedin.com/in/naveen-s-44ns)
+- **GitHub:** [Naveen4421](https://github.com/Naveen4421)

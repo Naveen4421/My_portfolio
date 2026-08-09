@@ -930,17 +930,34 @@
 
     .term-dots {
       display: flex;
-      gap: 6px;
+      align-items: center;
       margin-bottom: 16px;
       border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding-bottom: 10px;
+      padding-bottom: 14px;
     }
 
-    .term-dots span {
-      width: 8px;
-      height: 8px;
+    .dots-wrapper {
+      display: flex;
+      gap: 6px;
+    }
+
+    .term-dots span.dot {
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: var(--border-strong);
+    }
+
+    .term-dots span.dot:nth-child(1) { background: #FF5F57; }
+    .term-dots span.dot:nth-child(2) { background: #FEBC2E; }
+    .term-dots span.dot:nth-child(3) { background: #28C840; }
+
+    .term-header-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-left: 14px;
+      font-weight: 600;
     }
 
     .term-line {
@@ -1724,9 +1741,12 @@
 
           <div class="terminal-box" id="termBox">
             <div class="term-dots">
-              <span></span>
-              <span></span>
-              <span></span>
+              <div class="dots-wrapper">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+              <span class="term-header-title">TERMINAL</span>
             </div>
             <div id="termConsole"></div>
           </div>
@@ -2187,7 +2207,10 @@
       activeLine.className = "term-line";
       activeLine.style.display = "flex";
       activeLine.style.alignItems = "center";
-      activeLine.innerHTML = `<span class="term-prompt">user@sietllm:~$</span>
+      activeLine.style.borderTop = "1px solid rgba(76, 111, 255, 0.4)";
+      activeLine.style.paddingTop = "12px";
+      activeLine.style.marginTop = "12px";
+      activeLine.innerHTML = `<span class="term-prompt">naveen@portfolio:~$</span>
                               <input type="text" id="termInput" autocomplete="off" spellcheck="false" style="background: transparent; border: none; outline: none; color: inherit; font-family: inherit; font-size: inherit; flex-grow: 1; margin-left: 8px;">`;
       consoleEl.appendChild(activeLine);
 
@@ -2199,24 +2222,32 @@
         if (isInput) {
            line.innerHTML = `<span class="term-prompt">${promptStr}</span> <span style="margin-left: 4px;">${text}</span>`;
         } else {
-           line.textContent = text;
+           line.innerHTML = text;
         }
         historyDiv.appendChild(line);
       }
 
-      printOutput("Welcome to sietllm. Type 'help' to see available commands.");
+      const asciiWelcome = `<div style="color: var(--accent-blue); line-height: 1.3; margin-bottom: 20px; white-space: pre;">
+╔═══════════════════════════════════════════════════╗
+║                                                   ║
+║    Interactive Terminal Portfolio                 ║
+║    Type 'help' to see available commands          ║
+║                                                   ║
+╚═══════════════════════════════════════════════════╝
+</div>`;
+      printOutput(asciiWelcome);
 
       inputEl.addEventListener("keydown", function(e) {
         if (e.key === "Enter") {
           const cmd = this.value.trim();
           this.value = "";
           if (!cmd) {
-            printOutput("", true, "user@sietllm:~$");
+            printOutput("", true, "naveen@portfolio:~$");
             inputEl.scrollIntoView();
             return;
           }
           
-          printOutput(cmd, true, "user@sietllm:~$");
+          printOutput(cmd, true, "naveen@portfolio:~$");
           
           const args = cmd.split(" ").filter(Boolean);
           const command = args[0].toLowerCase();
