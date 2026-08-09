@@ -9,7 +9,18 @@ interface LogEntry {
 
 export default function TerminalSection() {
   const [history, setHistory] = useState<LogEntry[]>([
-    { output: "Welcome to Naveen's Operator Console Terminal. Type 'help' to see active commands." }
+    { 
+      output: (
+        <div className="text-accent-blue leading-snug mb-5 whitespace-pre">
+{`╔═══════════════════════════════════════════════════╗
+║                                                   ║
+║    Interactive Terminal Portfolio                 ║
+║    Type 'help' to see available commands          ║
+║                                                   ║
+╚═══════════════════════════════════════════════════╝`}
+        </div>
+      )
+    }
   ]);
   const [inputValue, setInputValue] = useState("");
   const terminalEndRef = useRef<HTMLDivElement>(null);
@@ -35,7 +46,7 @@ export default function TerminalSection() {
           <div className="space-y-1 text-slate-400">
             <div>Available commands:</div>
             <div>&bull; <span className="text-accent-blue font-bold">ls</span>: List files / projects</div>
-            <div>&bull; <span className="text-accent-blue font-bold">cat &lt;file&gt;</span>: View file content (e.g. `cat about.md`)</div>
+            <div>&bull; <span className="text-accent-blue font-bold">cat &lt;file&gt;</span>: View file content (e.g. \`cat about.md\`)</div>
             <div>&bull; <span className="text-accent-blue font-bold">whoami</span>: Display active engineer credentials</div>
             <div>&bull; <span className="text-accent-blue font-bold">clear</span>: Flush console buffer</div>
           </div>
@@ -95,29 +106,40 @@ export default function TerminalSection() {
   };
 
   return (
-    <div className="w-full bg-[#0a0c16] border border-slate-800 rounded-lg p-5 font-mono text-xs text-slate-300 shadow-inner h-[320px] flex flex-col justify-between overflow-hidden">
-      <div className="overflow-y-auto space-y-3.5 pr-2 max-h-[250px] flex-grow select-text">
+    <div className="w-full terminal-box-3d rounded-lg p-5 font-mono text-[13px] text-slate-300 h-[320px] flex flex-col justify-between overflow-hidden">
+      
+      {/* Mac Dots Header */}
+      <div className="flex items-center mb-4 border-b border-white/5 pb-3">
+        <div className="flex gap-1.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-[#FEBC2E]"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]"></span>
+        </div>
+        <span className="ml-3.5 font-mono text-[11px] tracking-widest text-slate-500 font-semibold uppercase">TERMINAL</span>
+      </div>
+
+      <div className="overflow-y-auto space-y-3.5 pr-2 flex-grow select-text scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
         {history.map((entry, idx) => (
           <div key={idx} className="space-y-1">
             {entry.command && (
-              <div className="flex items-center gap-1.5 text-slate-500 font-bold">
-                <span>$</span>
+              <div className="flex items-center gap-1.5 font-bold">
+                <span className="text-accent-green">naveen@portfolio:~$</span>
                 <span className="text-slate-200">{entry.command}</span>
               </div>
             )}
-            <div className="pl-3 leading-relaxed whitespace-pre-wrap">{entry.output}</div>
+            <div className="pl-1 leading-relaxed whitespace-pre-wrap">{entry.output}</div>
           </div>
         ))}
         <div ref={terminalEndRef} />
       </div>
 
-      <form onSubmit={handleCommand} className="flex items-center gap-2 border-t border-slate-800/80 pt-3 mt-3">
-        <span className="text-accent-blue font-bold">$</span>
+      <form onSubmit={handleCommand} className="flex items-center gap-2 border-t border-[#4c6fff]/40 pt-3 mt-3">
+        <span className="text-accent-green font-bold">naveen@portfolio:~$</span>
         <input
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          className="flex-grow bg-transparent text-slate-100 placeholder-slate-600 focus:outline-none border-none p-0 text-xs font-mono"
+          className="flex-grow bg-transparent text-slate-100 placeholder-slate-600/70 focus:outline-none border-none p-0 text-xs font-mono ml-2"
           placeholder="Type command ('help', 'ls', 'whoami')..."
           autoComplete="off"
           autoCorrect="off"
