@@ -338,9 +338,10 @@ body[data-theme="light"] .console {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--accent-blue-dim);
-  color: var(--accent-blue);
-  border: 1px solid rgba(76, 111, 255, 0.4);
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-right: none;
   padding: 10px 18px;
   border-radius: var(--radius-sm) 0 0 var(--radius-sm);
   font-size: 13.5px;
@@ -350,10 +351,11 @@ body[data-theme="light"] .console {
 }
 
 .btn-cv:hover {
-  background: rgba(76, 111, 255, 0.22);
+  background: var(--bg-panel-hover);
 }
 
 .btn-cv svg {
+  color: var(--accent-blue);
   width: 15px;
   height: 15px;
 }
@@ -363,12 +365,17 @@ body[data-theme="light"] .console {
   align-items: center;
   justify-content: center;
   width: 38px;
-  background: var(--accent-blue-dim);
-  border: 1px solid rgba(76, 111, 255, 0.4);
-  border-left: 1px solid rgba(76, 111, 255, 0.25);
+  background: transparent;
+  border: 1px solid var(--border);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  color: var(--accent-blue);
+  color: var(--text-secondary);
   cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-toggle:hover {
+  background: var(--bg-panel-hover);
+  color: var(--text-primary);
 }
 
 .btn-toggle svg {
@@ -442,9 +449,13 @@ body[data-theme="light"] .sidebar {
 }
 
 .swatches {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 18px;
+  display: inline-flex;
+  gap: 6px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  background: var(--bg-window);
 }
 
 .swatches span {
@@ -457,8 +468,6 @@ body[data-theme="light"] .sidebar {
 .swatches span:nth-child(1) { background: #4C6FFF; }
 .swatches span:nth-child(2) { background: #22C55E; }
 
-<<<<<<< HEAD
-=======
 .sidebar-divider {
   height: 1px;
   background: var(--border);
@@ -517,8 +526,12 @@ body[data-theme="light"] .sidebar {
 }
 
 .side-nav button.active, .side-nav a.active {
-  background: var(--accent-blue-dim);
-  border-color: rgba(76, 111, 255, 0.5);
+  background: transparent;
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.side-nav button.active svg, .side-nav a.active svg {
   color: var(--accent-blue);
 }
 
