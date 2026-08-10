@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Naveen — DevOps Cloud Engineer</title>
-  <meta name="description" content="Naveen — DevOps Cloud Engineer. Infrastructure, Kubernetes, CI/CD, and self-hosted AI systems.">
+  <title>Naveen â€” DevOps Cloud Engineer</title>
+  <meta name="description" content="Naveen â€” DevOps Cloud Engineer. Infrastructure, Kubernetes, CI/CD, and self-hosted AI systems.">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -124,11 +124,11 @@
       top: 0;
       left: 0;
       width: 480px;
-      height: 680px;
+      min-height: 100vh;
       z-index: 0;
       pointer-events: none;
-      mask-image: radial-gradient(ellipse 420px 560px at 0% 0%, #000 45%, transparent 92%);
-      -webkit-mask-image: radial-gradient(ellipse 420px 560px at 0% 0%, #000 45%, transparent 92%);
+      
+      -webkit-
       opacity: 0.9;
     }
 
@@ -276,7 +276,7 @@
 
     .status-row {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       font-family: var(--font-mono);
       font-size: 12.5px;
     }
@@ -438,10 +438,13 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-window);
       box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
-      padding: 22px 18px;
+      padding:  16px 14px;
       display: flex;
       flex-direction: column;
       transition: background-color 0.25s ease, border-color 0.25s ease;
+      position: sticky;
+      top: 36px;
+      height: max-content;
     }
 
     body[data-theme="light"] .sidebar {
@@ -451,7 +454,7 @@
     .swatches {
       display: flex;
       gap: 8px;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
     .swatches span {
@@ -469,7 +472,7 @@
     .sidebar-divider {
       height: 1px;
       background: var(--border);
-      margin: 4px 0 14px;
+      margin: 4px 0 10px;
     }
 
     .side-nav {
@@ -481,8 +484,8 @@
     .side-nav button {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
+      gap: 8px;
+      padding: 8px 10px;
       border-radius: 8px;
       font-family: var(--font-mono);
       font-size: 12.5px;
@@ -536,7 +539,7 @@
       display: flex;
       justify-content: center;
       gap: 6px;
-      margin: 20px 0 18px;
+      margin: 12px 0 10px;
     }
 
     .page-dots span {
@@ -559,8 +562,8 @@
       margin-top: auto;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      padding-top: 16px;
+      gap: 8px;
+      padding-top: 12px;
     }
 
     .search-box {
@@ -569,7 +572,7 @@
       gap: 8px;
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 9px 10px;
+      padding: 7px 8px;
       background: var(--bg-window);
       color: var(--text-secondary);
       font-family: var(--font-mono);
@@ -1340,37 +1343,62 @@
 
   <!-- Decorative Low-Poly masked fixed mesh -->
   <div class="mesh-wrap" aria-hidden="true">
-    <svg class="mesh-svg" viewBox="0 0 476 680" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin slice">
-      <polygon points="-3.2,-6.3 70.7,-7.7 2.3,76.1" fill="#FB8C00" fill-opacity="0.76"/>
-      <polygon points="70.7,-7.7 69.4,66.1 2.3,76.1" fill="#FB8C00" fill-opacity="0.69"/>
-      <polygon points="70.7,-7.7 136.6,-2.4 69.4,66.1" fill="#E5484D" fill-opacity="0.87"/>
-      <polygon points="136.6,-2.4 144.6,59.8 69.4,66.1" fill="#E5484D" fill-opacity="0.74"/>
-      <polygon points="136.6,-2.4 196.0,0.1 144.6,59.8" fill="#FB8C00" fill-opacity="0.73"/>
-      <polygon points="196.0,0.1 210.5,64.2 144.6,59.8" fill="#0FB5AE" fill-opacity="0.92"/>
-      <polygon points="196.0,0.1 263.7,-1.2 210.5,64.2" fill="#0FB5AE" fill-opacity="0.58"/>
-      <polygon points="263.7,-1.2 265.6,61.1 210.5,64.2" fill="#0FB5AE" fill-opacity="0.59"/>
-      <polygon points="263.7,-1.2 332.3,-7.4 265.6,61.1" fill="#2EC4B6" fill-opacity="0.69"/>
-      <polygon points="332.3,-7.4 336.6,73.7 265.6,61.1" fill="#FB8C00" fill-opacity="0.74"/>
-      <polygon points="332.3,-7.4 406.6,5.9 336.6,73.7" fill="#E5484D" fill-opacity="0.91"/>
-      <polygon points="406.6,5.9 402.3,69.5 336.6,73.7" fill="#2EC4B6" fill-opacity="0.69"/>
-      <polygon points="406.6,5.9 469.2,-5.0 402.3,69.5" fill="#D62839" fill-opacity="0.91"/>
-      <polygon points="469.2,-5.0 478.5,65.7 402.3,69.5" fill="#D62839" fill-opacity="0.86"/>
-      <polygon points="2.3,76.1 69.4,66.1 0.9,128.1" fill="#FB8C00" fill-opacity="0.91"/>
-      <polygon points="69.4,66.1 60.1,130.7 0.9,128.1" fill="#2EC4B6" fill-opacity="0.72"/>
-      <polygon points="69.4,66.1 144.6,59.8 60.1,130.7" fill="#0FB5AE" fill-opacity="0.87"/>
-      <polygon points="144.6,59.8 139.2,134.7 60.1,130.7" fill="#D62839" fill-opacity="0.94"/>
-      <polygon points="144.6,59.8 210.5,64.2 139.2,134.7" fill="#14B8A6" fill-opacity="0.71"/>
-      <polygon points="210.5,64.2 200.7,137.5 139.2,134.7" fill="#2EC4B6" fill-opacity="0.93"/>
-      <polygon points="210.5,64.2 265.6,61.1 200.7,137.5" fill="#F4511E" fill-opacity="0.95"/>
-      <polygon points="265.6,61.1 271.2,132.4 200.7,137.5" fill="#F4511E" fill-opacity="0.56"/>
-      <polygon points="265.6,61.1 336.6,73.7 271.2,132.4" fill="#2EC4B6" fill-opacity="0.79"/>
-      <polygon points="336.6,73.7 345.3,139.6 271.2,132.4" fill="#F4511E" fill-opacity="0.79"/>
-      <polygon points="336.6,73.7 402.3,69.5 345.3,139.6" fill="#2EC4B6" fill-opacity="0.61"/>
-      <polygon points="402.3,69.5 403.4,137.3 345.3,139.6" fill="#0FB5AE" fill-opacity="0.77"/>
-      <polygon points="402.3,69.5 478.5,65.7 403.4,137.3" fill="#E5484D" fill-opacity="0.87"/>
-      <polygon points="478.5,65.7 476.5,142.8 403.4,137.3" fill="#E5484D" fill-opacity="0.84"/>
-    </svg>
-  </div>
+      <svg class="mesh-svg top-mesh" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: -50px; left: -50px; width: 600px; height: 600px; opacity: 0.95; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));">
+        <defs>
+          <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF5F57"/><stop offset="100%" stop-color="#D93830"/></linearGradient>
+          <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FEBC2E"/><stop offset="100%" stop-color="#D99B22"/></linearGradient>
+          <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4C6FFF"/><stop offset="100%" stop-color="#2D4DCC"/></linearGradient>
+          <linearGradient id="g4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#22C55E"/><stop offset="100%" stop-color="#189846"/></linearGradient>
+          <linearGradient id="g5" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FF7A45"/><stop offset="100%" stop-color="#E85920"/></linearGradient>
+          <linearGradient id="g6" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#0284c7"/></linearGradient>
+        </defs>
+        <!-- Large 3D faceted cluster -->
+        <polygon points="100,50 250,80 180,200" fill="url(#g1)" />
+        <polygon points="250,80 380,120 280,240" fill="url(#g3)" />
+        <polygon points="180,200 250,80 280,240" fill="url(#g5)" />
+        <polygon points="180,200 280,240 150,350" fill="url(#g2)" />
+        <polygon points="280,240 380,120 420,280" fill="url(#g6)" />
+        <polygon points="280,240 420,280 320,380" fill="url(#g4)" />
+        <polygon points="150,350 280,240 320,380" fill="url(#g1)" />
+        <polygon points="50,180 100,50 180,200" fill="url(#g6)" />
+        <polygon points="50,180 180,200 150,350" fill="url(#g3)" />
+        <polygon points="150,350 320,380 200,480" fill="url(#g5)" />
+        <polygon points="320,380 420,280 450,420" fill="url(#g1)" />
+        <polygon points="320,380 450,420 350,520" fill="url(#g3)" />
+        <polygon points="200,480 320,380 350,520" fill="url(#g2)" />
+        
+        <!-- Floating accents -->
+        <polygon points="450,80 480,90 460,120" fill="#FEBC2E" opacity="0.8" />
+        <polygon points="80,400 110,420 70,450" fill="#4C6FFF" opacity="0.6" />
+        <polygon points="480,300 520,310 500,350" fill="#FF5F57" opacity="1.0" />
+      </svg>
+      
+      <svg class="mesh-svg bottom-mesh" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" style="position: fixed; bottom: -80px; right: -80px; width: 650px; height: 650px; opacity: 0.85; filter: drop-shadow(0 -20px 30px rgba(0,0,0,0.5)); z-index: -1;">
+        <defs>
+          <linearGradient id="b1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#0284c7"/></linearGradient>
+          <linearGradient id="b2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4C6FFF"/><stop offset="100%" stop-color="#2D4DCC"/></linearGradient>
+          <linearGradient id="b3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF7A45"/><stop offset="100%" stop-color="#E85920"/></linearGradient>
+          <linearGradient id="b4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#22C55E"/><stop offset="100%" stop-color="#189846"/></linearGradient>
+          <linearGradient id="b5" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FEBC2E"/><stop offset="100%" stop-color="#D99B22"/></linearGradient>
+        </defs>
+        <!-- Large 3D faceted cluster -->
+        <polygon points="150,200 300,250 220,380" fill="url(#b1)" />
+        <polygon points="300,250 450,280 320,420" fill="url(#b3)" />
+        <polygon points="220,380 300,250 320,420" fill="url(#b2)" />
+        <polygon points="220,380 320,420 180,520" fill="url(#b5)" />
+        <polygon points="320,420 450,280 480,450" fill="url(#b4)" />
+        <polygon points="320,420 480,450 350,580" fill="url(#b1)" />
+        <polygon points="180,520 320,420 350,580" fill="url(#b3)" />
+        <polygon points="80,320 150,200 220,380" fill="url(#b4)" />
+        <polygon points="80,320 220,380 180,520" fill="url(#b2)" />
+        <polygon points="180,520 350,580 250,680" fill="url(#b1)" />
+        
+        <!-- Floating accents -->
+        <polygon points="120,150 150,160 130,190" fill="#22C55E" opacity="0.9" />
+        <polygon points="450,180 490,190 470,230" fill="#FF7A45" opacity="0.7" />
+        <polygon points="80,550 110,570 70,600" fill="#4C6FFF" opacity="0.8" />
+      </svg>
+    </div>
 
   <a href="#main-content" class="skip-link">Skip to content</a>
 
@@ -1559,7 +1587,7 @@
           <h1 id="headingOverview">Overview<span class="dot">.</span></h1>
           <div class="underline-bar"></div>
           <p class="lead" id="txtOverviewSub">
-            I design and operate cloud infrastructure end to end — provisioning with Terraform, orchestrating containers on Kubernetes, and building CI/CD pipelines that ship code safely. Recent work spans self-hosted GPU infrastructure, observability stacks, and containerized microservices, with every system reachable at ssh sietllm and monitored through Grafana + Loki.
+            I design and operate cloud infrastructure end to end â€” provisioning with Terraform, orchestrating containers on Kubernetes, and building CI/CD pipelines that ship code safely. Recent work spans self-hosted GPU infrastructure, observability stacks, and containerized microservices, with every system reachable at ssh sietllm and monitored through Grafana + Loki.
           </p>
 
           <div class="stat-grid">
@@ -1595,7 +1623,7 @@
                 <svg viewBox="0 0 24 24"><path d="M19.35 10.04A7.49 7.49 0 0012 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 000 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
               </div>
               <h3>AI Interview Platform</h3>
-              <p>Production-grade microservices platform for AI-driven interviews, self-hosted on a dedicated GPU server — Kong gateway, Dockerized services, PostgreSQL, Redis, RabbitMQ, with self-hosted LLM, STT, and TTS.</p>
+              <p>Production-grade microservices platform for AI-driven interviews, self-hosted on a dedicated GPU server â€” Kong gateway, Dockerized services, PostgreSQL, Redis, RabbitMQ, with self-hosted LLM, STT, and TTS.</p>
               <div class="proj-tags font-mono">
                 <span>Docker Compose</span>
                 <span>Kong</span>
@@ -1612,7 +1640,7 @@
                 <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
               </div>
               <h3>CI/CD Pipeline</h3>
-              <p>End-to-end pipeline built from scratch — Jenkins orchestrating Maven builds, SonarQube quality gates, Nexus artifact storage, and automated Docker Compose deployment to Tomcat.</p>
+              <p>End-to-end pipeline built from scratch â€” Jenkins orchestrating Maven builds, SonarQube quality gates, Nexus artifact storage, and automated Docker Compose deployment to Tomcat.</p>
               <div class="proj-tags font-mono">
                 <span>Jenkins</span>
                 <span>Maven</span>
@@ -1629,7 +1657,7 @@
                 <svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 3.99L19.53 19H4.47L12 5.99z"/></svg>
               </div>
               <h3>Terraform + Kubernetes IaC</h3>
-              <p>Provisioned and managed containerized workloads with Terraform, deploying to a local Kubernetes cluster via Minikube — declarative infra and cluster resource definitions.</p>
+              <p>Provisioned and managed containerized workloads with Terraform, deploying to a local Kubernetes cluster via Minikube â€” declarative infra and cluster resource definitions.</p>
               <div class="proj-tags font-mono">
                 <span>Terraform</span>
                 <span>Kubernetes</span>
@@ -1755,7 +1783,7 @@
           <span class="eyebrow-num">04 / BLOG</span>
           <h2 id="headingBlog">Writing<span class="dot">.</span></h2>
           <div class="underline-bar"></div>
-          <p class="lead" id="txtBlogSub">Notes on infra debugging and build logs — DNS latency fixes, Docker networking quirks, and migration write-ups.</p>
+          <p class="lead" id="txtBlogSub">Notes on infra debugging and build logs â€” DNS latency fixes, Docker networking quirks, and migration write-ups.</p>
 
           <div style="background: var(--bg-panel); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 28px 30px; margin-top: 24px;">
             <p class="lead text-sm" style="color: var(--text-secondary);">No articles published yet. Stay tuned for future build logs.</p>
@@ -1892,7 +1920,7 @@
 
     <!-- Footer block -->
     <footer>
-      <p>© <span id="footerYear">2026</span> Naveen S &bull; DevOps Cloud Engineer Console</p>
+      <p>Â© <span id="footerYear">2026</span> Naveen S &bull; DevOps Cloud Engineer Console</p>
     </footer>
 
   </div>
@@ -1925,13 +1953,13 @@
         statVibe: "Vibe Coding",
         
         overviewTitle: "Overview",
-        overviewSub: "I design and operate cloud infrastructure end to end — provisioning with Terraform, orchestrating containers on Kubernetes, and building CI/CD pipelines that ship code safely. Recent work spans self-hosted GPU infrastructure, observability stacks, and containerized microservices, with every system reachable at ssh sietllm and monitored through Grafana + Loki.",
+        overviewSub: "I design and operate cloud infrastructure end to end â€” provisioning with Terraform, orchestrating containers on Kubernetes, and building CI/CD pipelines that ship code safely. Recent work spans self-hosted GPU infrastructure, observability stacks, and containerized microservices, with every system reachable at ssh sietllm and monitored through Grafana + Loki.",
         projectsTitle: "Projects",
         projectsSub: "Infrastructure, platforms, and pipelines I've built and operate.",
         credentialsTitle: "Certifications & Badges",
         credentialsSub: "Verified credentials and community recognition.",
         writingTitle: "Writing",
-        writingSub: "Notes on infra debugging and build logs — DNS latency fixes, Docker networking quirks, and migration write-ups.",
+        writingSub: "Notes on infra debugging and build logs â€” DNS latency fixes, Docker networking quirks, and migration write-ups.",
         infraTitle: "System Topology",
         infraSub: "Multi-service runtime architecture deployed on a dedicated GPU server.",
         contactTitle: "Get in touch",
@@ -1948,41 +1976,41 @@
         }
       },
       kn: {
-        operator: "ಆಪರೇಟರ್ ಕನ್ಸೋಲ್",
-        sysStatus: "ಸಿಸ್ಟಮ್ ಸ್ಥಿತಿ",
-        about: "ಪರಿಚಯ",
-        portfolio: "ಯೋಜನೆಗಳು",
-        resume: "ರುಜುವಾತು",
-        blog: "ಬ್ಲಾಗ್",
-        terminal: "ಟರ್ಮಿನಲ್",
-        infra: "ಮೂಲಸೌಕರ್ಯ",
-        contact: "ಸಂಪರ್ಕ",
-        statProj: "ಯೋಜನೆಗಳು",
-        statCert: "ಪ್ರಮಾಣಪತ್ರಗಳು",
-        statBadges: "ಬ್ಯಾಡ್ಜ್‌ಗಳು",
-        statVibe: "ವೈಬ್ ಕೋಡಿಂಗ್",
+        operator: "à²†à²ªà²°à³‡à²Ÿà²°à³ à²•à²¨à³à²¸à³‹à²²à³",
+        sysStatus: "à²¸à²¿à²¸à³à²Ÿà²®à³ à²¸à³à²¥à²¿à²¤à²¿",
+        about: "à²ªà²°à²¿à²šà²¯",
+        portfolio: "à²¯à³‹à²œà²¨à³†à²—à²³à³",
+        resume: "à²°à³à²œà³à²µà²¾à²¤à³",
+        blog: "à²¬à³à²²à²¾à²—à³",
+        terminal: "à²Ÿà²°à³à²®à²¿à²¨à²²à³",
+        infra: "à²®à³‚à²²à²¸à³Œà²•à²°à³à²¯",
+        contact: "à²¸à²‚à²ªà²°à³à²•",
+        statProj: "à²¯à³‹à²œà²¨à³†à²—à²³à³",
+        statCert: "à²ªà³à²°à²®à²¾à²£à²ªà²¤à³à²°à²—à²³à³",
+        statBadges: "à²¬à³à²¯à²¾à²¡à³à²œà³â€Œà²—à²³à³",
+        statVibe: "à²µà³ˆà²¬à³ à²•à³‹à²¡à²¿à²‚à²—à³",
         
-        overviewTitle: "ಪರಿಚಯ",
-        overviewSub: "ನಾನು ಕ್ಲೌಡ್ ಮೂಲಸೌಕರ್ಯವನ್ನು ಕೊನೆಯಿಂದ ಕೊನೆಯವರೆಗೆ ವಿನ್ಯಾಸಗೊಳಿಸುತ್ತೇನೆ ಮತ್ತು ನಿರ್ವಹಿಸುತ್ತೇನೆ - ಟೆರಾಫಾರ್ಮ್‌ನೊಂದಿಗೆ ನಿಯೋಜನೆ, ಕುಬರ್ನೆಟಿಸ್‌ನಲ್ಲಿ ಕಂಟೈನರ್‌ಗಳನ್ನು ಆರ್ಕೆಸ್ಟ್ರೇಟ್ ಮಾಡುವುದು ಮತ್ತು ಸುಭದ್ರ ಪೈಪ್‌ಲೈನ್‌ಗಳನ್ನು ನಿರ್ಮಿಸುವುದು. ಪ್ರಸ್ತುತ GPU ಮೂಲಸೌಕರ್ಯ, ಅಬ್ಸರ್ವೇಬಿಲಿಟಿ ಸ್ಟಾಕ್‌ಗಳು ಮತ್ತು ಕಂಟೇನರೈಸ್ಡ್ ಮೈಕ್ರೋಸರ್ವೀಸ್‌ಗಳಲ್ಲಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತಿದ್ದೇನೆ.",
-        projectsTitle: "ಯೋಜನೆಗಳು",
-        projectsSub: "ನಾನು ನಿರ್ಮಿಸಿದ ಮತ್ತು ನಿರ್ವಹಿಸುತ್ತಿರುವ ಮೂಲಸೌಕರ್ಯ, ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳು ಮತ್ತು ಪೈಪ್‌ಲೈನ್‌ಗಳು.",
-        credentialsTitle: "ಪ್ರಮಾಣಪತ್ರಗಳು ಮತ್ತು ಬ್ಯಾಡ್ಜ್‌ಗಳು",
-        credentialsSub: "ಪರಿಶೀಲಿಸಿದ ರುಜುವಾತುಗಳು ಮತ್ತು ಸಮುದಾಯದ ಮನ್ನಣೆ.",
-        writingTitle: "ಬರಹಗಳು",
-        writingSub: "ಮೂಲಸೌಕರ್ಯ ಡೀಬಗ್ ಮಾಡುವಿಕೆ ಮತ್ತು ಬಿಲ್ಡ್ ಲಾಗ್‌ಗಳ ಮೇಲಿನ ಟಿಪ್ಪಣಿಗಳು.",
-        infraTitle: "ಮೂಲಸೌಕರ್ಯ ರಚನೆ",
-        infraSub: "ಡೆಡಿಕೇಟೆಡ್ ಜಿಪಿಯು ಸರ್ವರ್‌ನಲ್ಲಿ ಮಲ್ಟಿ-ಸರ್ವೀಸ್ ಡಾಕರ್ ಕಂಪೋಸ್ ನಿಯೋಜನೆ. Tailscale ಮತ್ತು Grafana ಮೂಲಕ ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲಾಗಿದೆ.",
-        contactTitle: "ಸಂಪರ್ಕಿಸಿ",
-        contactSub: "ಇಮೇಲ್ ಮತ್ತು ಸಾಮಾಜಿಕ ಲಿಂಕ್‌ಗಳು",
+        overviewTitle: "à²ªà²°à²¿à²šà²¯",
+        overviewSub: "à²¨à²¾à²¨à³ à²•à³à²²à³Œà²¡à³ à²®à³‚à²²à²¸à³Œà²•à²°à³à²¯à²µà²¨à³à²¨à³ à²•à³Šà²¨à³†à²¯à²¿à²‚à²¦ à²•à³Šà²¨à³†à²¯à²µà²°à³†à²—à³† à²µà²¿à²¨à³à²¯à²¾à²¸à²—à³Šà²³à²¿à²¸à³à²¤à³à²¤à³‡à²¨à³† à²®à²¤à³à²¤à³ à²¨à²¿à²°à³à²µà²¹à²¿à²¸à³à²¤à³à²¤à³‡à²¨à³† - à²Ÿà³†à²°à²¾à²«à²¾à²°à³à²®à³â€Œà²¨à³Šà²‚à²¦à²¿à²—à³† à²¨à²¿à²¯à³‹à²œà²¨à³†, à²•à³à²¬à²°à³à²¨à³†à²Ÿà²¿à²¸à³â€Œà²¨à²²à³à²²à²¿ à²•à²‚à²Ÿà³ˆà²¨à²°à³â€Œà²—à²³à²¨à³à²¨à³ à²†à²°à³à²•à³†à²¸à³à²Ÿà³à²°à³‡à²Ÿà³ à²®à²¾à²¡à³à²µà³à²¦à³ à²®à²¤à³à²¤à³ à²¸à³à²­à²¦à³à²° à²ªà³ˆà²ªà³â€Œà²²à³ˆà²¨à³â€Œà²—à²³à²¨à³à²¨à³ à²¨à²¿à²°à³à²®à²¿à²¸à³à²µà³à²¦à³. à²ªà³à²°à²¸à³à²¤à³à²¤ GPU à²®à³‚à²²à²¸à³Œà²•à²°à³à²¯, à²…à²¬à³à²¸à²°à³à²µà³‡à²¬à²¿à²²à²¿à²Ÿà²¿ à²¸à³à²Ÿà²¾à²•à³â€Œà²—à²³à³ à²®à²¤à³à²¤à³ à²•à²‚à²Ÿà³‡à²¨à²°à³ˆà²¸à³à²¡à³ à²®à³ˆà²•à³à²°à³‹à²¸à²°à³à²µà³€à²¸à³â€Œà²—à²³à²²à³à²²à²¿ à²•à²¾à²°à³à²¯à²¨à²¿à²°à³à²µà²¹à²¿à²¸à³à²¤à³à²¤à²¿à²¦à³à²¦à³‡à²¨à³†.",
+        projectsTitle: "à²¯à³‹à²œà²¨à³†à²—à²³à³",
+        projectsSub: "à²¨à²¾à²¨à³ à²¨à²¿à²°à³à²®à²¿à²¸à²¿à²¦ à²®à²¤à³à²¤à³ à²¨à²¿à²°à³à²µà²¹à²¿à²¸à³à²¤à³à²¤à²¿à²°à³à²µ à²®à³‚à²²à²¸à³Œà²•à²°à³à²¯, à²ªà³à²²à²¾à²Ÿà³â€Œà²«à²¾à²°à³à²®à³â€Œà²—à²³à³ à²®à²¤à³à²¤à³ à²ªà³ˆà²ªà³â€Œà²²à³ˆà²¨à³â€Œà²—à²³à³.",
+        credentialsTitle: "à²ªà³à²°à²®à²¾à²£à²ªà²¤à³à²°à²—à²³à³ à²®à²¤à³à²¤à³ à²¬à³à²¯à²¾à²¡à³à²œà³â€Œà²—à²³à³",
+        credentialsSub: "à²ªà²°à²¿à²¶à³€à²²à²¿à²¸à²¿à²¦ à²°à³à²œà³à²µà²¾à²¤à³à²—à²³à³ à²®à²¤à³à²¤à³ à²¸à²®à³à²¦à²¾à²¯à²¦ à²®à²¨à³à²¨à²£à³†.",
+        writingTitle: "à²¬à²°à²¹à²—à²³à³",
+        writingSub: "à²®à³‚à²²à²¸à³Œà²•à²°à³à²¯ à²¡à³€à²¬à²—à³ à²®à²¾à²¡à³à²µà²¿à²•à³† à²®à²¤à³à²¤à³ à²¬à²¿à²²à³à²¡à³ à²²à²¾à²—à³â€Œà²—à²³ à²®à³‡à²²à²¿à²¨ à²Ÿà²¿à²ªà³à²ªà²£à²¿à²—à²³à³.",
+        infraTitle: "à²®à³‚à²²à²¸à³Œà²•à²°à³à²¯ à²°à²šà²¨à³†",
+        infraSub: "à²¡à³†à²¡à²¿à²•à³‡à²Ÿà³†à²¡à³ à²œà²¿à²ªà²¿à²¯à³ à²¸à²°à³à²µà²°à³â€Œà²¨à²²à³à²²à²¿ à²®à²²à³à²Ÿà²¿-à²¸à²°à³à²µà³€à²¸à³ à²¡à²¾à²•à²°à³ à²•à²‚à²ªà³‹à²¸à³ à²¨à²¿à²¯à³‹à²œà²¨à³†. Tailscale à²®à²¤à³à²¤à³ Grafana à²®à³‚à²²à²• à²®à³‡à²²à³à²µà²¿à²šà²¾à²°à²£à³† à²®à²¾à²¡à²²à²¾à²—à²¿à²¦à³†.",
+        contactTitle: "à²¸à²‚à²ªà²°à³à²•à²¿à²¸à²¿",
+        contactSub: "à²‡à²®à³‡à²²à³ à²®à²¤à³à²¤à³ à²¸à²¾à²®à²¾à²œà²¿à²• à²²à²¿à²‚à²•à³â€Œà²—à²³à³",
         
         header: {
-          overview: { title: "ನವೀನ್ ಎಸ್", role: "ಡೆವಲಪರ್ ಕ್ಲೌಡ್ ಇಂಜಿನಿಯರ್", tag: "engineer/01" },
-          projects: { title: "ಯೋಜನೆಗಳ ಪೋರ್ಟ್‌ಫೋಲಿಯೋ", role: "ಉತ್ಪಾದನಾ ಮೂಲಸೌಕರ್ಯ ಮತ್ತು ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳು", tag: "engineer/01/projects" },
-          credentials: { title: "ಪ್ರಮಾಣಪತ್ರಗಳು", role: "ಪರಿಶೀಲಿಸಿದ ರುಜುವಾತುಗಳು ಮತ್ತು ಬ್ಯಾಡ್ಜ್‌ಗಳು", tag: "engineer/01/credentials" },
-          blog: { title: "ಆಪರೇಟರ್ ಬ್ಲಾಗ್", role: "ಸಿಸ್ಟಮ್ ಬಿಲ್ಡ್ ಲಾಗ್‌ಗಳು ಮತ್ತು ಟಿಪ್ಪಣಿಗಳು", tag: "engineer/01/blog" },
-          terminal: { title: "ಟರ್ಮಿನಲ್ ಕನ್ಸೋಲ್", role: "ಸ್ಯಾಂಡ್‌ಬಾಕ್ಸ್ ಪರಿಸರ", tag: "engineer/01/terminal" },
-          infra: { title: "ಸಿಸ್ಟಮ್ ಮೂಲಸೌಕರ್ಯ", role: "ಕೋರೆ ಸೇವೆಗಳ ಟೋಪೋಲಜಿ", tag: "engineer/01/infrastructure" },
-          contact: { title: "ಸಂಪರ್ಕಿಸಿ", role: "ಇಮೇಲ್ ಮತ್ತು ಸಾಮಾಜಿಕ ಲಿಂಕ್‌ಗಳು", tag: "engineer/01/contact" },
+          overview: { title: "à²¨à²µà³€à²¨à³ à²Žà²¸à³", role: "à²¡à³†à²µà²²à²ªà²°à³ à²•à³à²²à³Œà²¡à³ à²‡à²‚à²œà²¿à²¨à²¿à²¯à²°à³", tag: "engineer/01" },
+          projects: { title: "à²¯à³‹à²œà²¨à³†à²—à²³ à²ªà³‹à²°à³à²Ÿà³â€Œà²«à³‹à²²à²¿à²¯à³‹", role: "à²‰à²¤à³à²ªà²¾à²¦à²¨à²¾ à²®à³‚à²²à²¸à³Œà²•à²°à³à²¯ à²®à²¤à³à²¤à³ à²ªà³à²²à²¾à²Ÿà³â€Œà²«à²¾à²°à³à²®à³â€Œà²—à²³à³", tag: "engineer/01/projects" },
+          credentials: { title: "à²ªà³à²°à²®à²¾à²£à²ªà²¤à³à²°à²—à²³à³", role: "à²ªà²°à²¿à²¶à³€à²²à²¿à²¸à²¿à²¦ à²°à³à²œà³à²µà²¾à²¤à³à²—à²³à³ à²®à²¤à³à²¤à³ à²¬à³à²¯à²¾à²¡à³à²œà³â€Œà²—à²³à³", tag: "engineer/01/credentials" },
+          blog: { title: "à²†à²ªà²°à³‡à²Ÿà²°à³ à²¬à³à²²à²¾à²—à³", role: "à²¸à²¿à²¸à³à²Ÿà²®à³ à²¬à²¿à²²à³à²¡à³ à²²à²¾à²—à³â€Œà²—à²³à³ à²®à²¤à³à²¤à³ à²Ÿà²¿à²ªà³à²ªà²£à²¿à²—à²³à³", tag: "engineer/01/blog" },
+          terminal: { title: "à²Ÿà²°à³à²®à²¿à²¨à²²à³ à²•à²¨à³à²¸à³‹à²²à³", role: "à²¸à³à²¯à²¾à²‚à²¡à³â€Œà²¬à²¾à²•à³à²¸à³ à²ªà²°à²¿à²¸à²°", tag: "engineer/01/terminal" },
+          infra: { title: "à²¸à²¿à²¸à³à²Ÿà²®à³ à²®à³‚à²²à²¸à³Œà²•à²°à³à²¯", role: "à²•à³‹à²°à³† à²¸à³‡à²µà³†à²—à²³ à²Ÿà³‹à²ªà³‹à²²à²œà²¿", tag: "engineer/01/infrastructure" },
+          contact: { title: "à²¸à²‚à²ªà²°à³à²•à²¿à²¸à²¿", role: "à²‡à²®à³‡à²²à³ à²®à²¤à³à²¤à³ à²¸à²¾à²®à²¾à²œà²¿à²• à²²à²¿à²‚à²•à³â€Œà²—à²³à³", tag: "engineer/01/contact" },
         }
       }
     };
@@ -2056,7 +2084,7 @@
 
       // Sync window title and URL hash
       const secName = secId === "overview" ? "Overview" : secId.charAt(0).toUpperCase() + secId.slice(1);
-      document.title = `Naveen — ${secName}`;
+      document.title = `Naveen â€” ${secName}`;
       window.location.hash = `#${secId}`;
     }
 
@@ -2102,9 +2130,9 @@
       document.getElementById("txtCredentialsSub").textContent = t.credentialsSub;
       document.getElementById("headingBlog").innerHTML = `${t.writingTitle}<span class="dot">.</span>`;
       document.getElementById("txtBlogSub").textContent = t.writingSub;
-      document.getElementById("headingTerminal").innerHTML = `${t.terminal === "TERMINAL" ? "Terminal" : "ಟರ್ಮಿನಲ್"}<span class="dot">.</span>`;
-      document.getElementById("txtTerminalSub").textContent = t.terminal === "TERMINAL" ? "Interactive sandbox terminal CLI query profile." : "ಸ್ಯಾಂಡ್‌ಬಾಕ್ಸ್ ಕನ್ಸೋಲ್ ಕ್ವೆರಿ ಪ್ರೊಫೈಲ್.";
-      document.getElementById("headingInfra").innerHTML = `${t.infra === "INFRASTRUCTURE" ? "System Topology" : "ಮೂಲಸೌಕರ್ಯ ರಚನೆ"}<span class="dot">.</span>`;
+      document.getElementById("headingTerminal").innerHTML = `${t.terminal === "TERMINAL" ? "Terminal" : "à²Ÿà²°à³à²®à²¿à²¨à²²à³"}<span class="dot">.</span>`;
+      document.getElementById("txtTerminalSub").textContent = t.terminal === "TERMINAL" ? "Interactive sandbox terminal CLI query profile." : "à²¸à³à²¯à²¾à²‚à²¡à³â€Œà²¬à²¾à²•à³à²¸à³ à²•à²¨à³à²¸à³‹à²²à³ à²•à³à²µà³†à²°à²¿ à²ªà³à²°à³Šà²«à³ˆà²²à³.";
+      document.getElementById("headingInfra").innerHTML = `${t.infra === "INFRASTRUCTURE" ? "System Topology" : "à²®à³‚à²²à²¸à³Œà²•à²°à³à²¯ à²°à²šà²¨à³†"}<span class="dot">.</span>`;
       document.getElementById("txtInfraSub").textContent = t.infraSub;
       document.getElementById("headingContact").innerHTML = `${t.contactTitle}<span class="dot">.</span>`;
       document.getElementById("txtContactSub").textContent = t.contactSub;
@@ -2217,7 +2245,7 @@
     // Interactive Terminal Sandbox
     let terminalInitialized = false;
     const fileSystem = {
-      "about.md": "I design and operate cloud infrastructure end to end — provisioning with Terraform, orchestrating containers on Kubernetes, and building CI/CD pipelines that ship code safely.",
+      "about.md": "I design and operate cloud infrastructure end to end â€” provisioning with Terraform, orchestrating containers on Kubernetes, and building CI/CD pipelines that ship code safely.",
       "projects.txt": "1. AI Interview Platform\n2. CI/CD Pipeline\n3. Terraform + Kubernetes IaC\n4. Kannada LLM & OCR\n5. PACT\n6. DSA Tracker",
       "contact.txt": "Email: naveen.siddappa44@gmail.com\nGitHub: github.com/Naveen4421\nLinkedIn: naveen-s-44ns",
       "resume.pdf": "[Binary file] Use the Resume tab to download."
@@ -2258,12 +2286,12 @@
       }
 
       const asciiWelcome = `<div style="color: var(--accent-blue); line-height: 1.3; margin-bottom: 20px; white-space: pre;">
-╔═══════════════════════════════════════════════════╗
-║                                                   ║
-║    Interactive Terminal Portfolio                 ║
-║    Type 'help' to see available commands          ║
-║                                                   ║
-╚═══════════════════════════════════════════════════╝
+â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
+â•‘                                                   â•‘
+â•‘    Interactive Terminal Portfolio                 â•‘
+â•‘    Type 'help' to see available commands          â•‘
+â•‘                                                   â•‘
+â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 </div>`;
       printOutput(asciiWelcome);
 
@@ -2370,3 +2398,4 @@
   </script>
 </body>
 </html>
+
