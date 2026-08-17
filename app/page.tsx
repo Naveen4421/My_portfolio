@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import MeshBackground from "@/components/MeshBackground";
 import TerminalSection from "@/components/sections/TerminalSection";
 import Tilt3D from "@/components/Tilt3D";
+import RadialOrbitalTimelineDemo from "@/components/demo/timeline-demo";
 import { 
   FaEnvelope, 
   FaLinkedin, 
@@ -519,6 +520,10 @@ export default function Home() {
                     <a href="https://github.com/Naveen4421" target="_blank" rel="noopener noreferrer">Github</a>
                   </div>
                 </article>
+              </div>
+
+              <div className="mt-16 w-full relative">
+                <RadialOrbitalTimelineDemo />
               </div>
             </section>
 
