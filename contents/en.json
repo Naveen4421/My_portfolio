@@ -1,0 +1,101 @@
+{
+    "about": {
+        "intro": "I'm a *DevOps & Cloud Engineer* focused on building **high-availability, automated, and secure cloud infrastructure**.",
+        "description": "I specialize in container orchestration with **Kubernetes**, enterprise-grade **AWS Landing Zones**, automated **CI/CD pipelines**, and cost-efficient **serverless architectures**.",
+        "full": "Hi, I'm **Naveen S**. I build high-availability, automated, and secure cloud infrastructure. \n\nSpecializing in container orchestration with **Kubernetes**, enterprise-grade **AWS Landing Zones**, automated **CI/CD pipelines**, and cost-efficient **serverless architectures**. Backed by clean Infrastructure as Code (IaC) principles."
+    },
+    "manifesto": [
+        "INFRASTRUCTURE AS CODE",
+        "HIGH AVAILABILITY",
+        "CONTINUOUS INTEGRATION",
+        "CONTINUOUS DEPLOYMENT",
+        "SECURE BY DESIGN",
+        "SERVERLESS EFFICIENCY"
+    ],
+    "projects": [
+        {
+            "id": "1",
+            "title": "AWS Multi-Region Landing Zone",
+            "category": "Cloud Infrastructure",
+            "year": "2025",
+            "description": "Deployed a secure, multi-account AWS environment using Terraform landing zone blueprints. Configured Transit Gateway routing, AWS Organizations SCPs, IAM Identity Center, and centralized cloudwatch logging.",
+            "image": "/projects/proj_aws_1787770005131.jpg",
+            "repo": "https://github.com/Naveen4421/My_portfolio",
+            "stack": [
+                "AWS",
+                "Terraform",
+                "Security"
+            ]
+        },
+        {
+            "id": "2",
+            "title": "Kubernetes GitOps Cluster",
+            "category": "Container Orchestration",
+            "year": "2025",
+            "description": "Designed a production-ready EKS cluster with GitOps continuous delivery via ArgoCD. Automated secrets injection, cert-manager SSL renewals, external-dns mappings, and Prometheus monitoring.",
+            "image": "/projects/proj_k8s_1787770021153.jpg",
+            "demo": "https://dsa-nine-blue.vercel.app/",
+            "repo": "https://github.com/Naveen4421/DSA.git",
+            "stack": [
+                "Kubernetes",
+                "ArgoCD",
+                "Helm"
+            ]
+        },
+        {
+            "id": "3",
+            "title": "Automated Jenkins Pipeline",
+            "category": "CI/CD",
+            "year": "2024",
+            "description": "Implemented a declarative Jenkins pipeline integrating static code checks (SonarQube), dependency security scanning (Trivy), Docker build controls, and automated deployment hooks.",
+            "image": "/projects/proj_jenkins_1787770034593.jpg",
+            "repo": "https://github.com/Naveen4421/loginapp.git",
+            "stack": [
+                "Jenkins",
+                "Docker",
+                "CI/CD"
+            ]
+        },
+        {
+            "id": "4",
+            "title": "Serverless Event API Engine",
+            "category": "Serverless Architecture",
+            "year": "2024",
+            "description": "Constructed a low-cost, serverless database analytics ingestion API on AWS. Built with Lambda event routing, API Gateway endpoints, DynamoDB tables, and Cloudwatch billing alarms.",
+            "image": "/projects/proj_serverless_1787770050925.jpg",
+            "repo": "https://github.com/Naveen4421/My_portfolio",
+            "demo": "https://my-portfolio-vert-eight-15.vercel.app/",
+            "stack": [
+                "Serverless",
+                "AWS Lambda",
+                "NoSQL"
+            ]
+        }
+    ],
+    "roadmap": [
+        {
+            "id": "01",
+            "year": "Dec 2025",
+            "description": "AWS Solutions Architect – Associate. Certified by Amazon Web Services.",
+            "stack": [
+                "AWS-ASA-4421"
+            ]
+        },
+        {
+            "id": "02",
+            "year": "Feb 2026",
+            "description": "Certified Kubernetes Administrator (CKA). Certified by CNCF / Linux Foundation.",
+            "stack": [
+                "CKA-99884"
+            ]
+        },
+        {
+            "id": "03",
+            "year": "Jan 2026",
+            "description": "HashiCorp Certified: Terraform Associate. Certified by HashiCorp.",
+            "stack": [
+                "HC-T-9821"
+            ]
+        }
+    ]
+}

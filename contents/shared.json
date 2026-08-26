@@ -1,0 +1,42 @@
+{
+    "contact": {
+        "location": "India",
+        "email": "naveen.siddappa44@gmail.com",
+        "phone": "+91 6360760312"
+    },
+    "social": [
+        {
+            "label": "GitHub",
+            "href": "https://github.com/Naveen4421"
+        },
+        {
+            "label": "Linkedin",
+            "href": "https://linkedin.com/in/naveen-s-44ns"
+        }
+    ],
+    "stack": {
+        "frontend": [
+            { "name": "Kubernetes", "icon": "SiKubernetes", "featured": true },
+            { "name": "Docker", "icon": "FaDocker", "featured": true },
+            { "name": "AWS", "icon": "FaAws", "featured": true },
+            { "name": "Linux", "icon": "SiLinux" }
+        ],
+        "backend": [
+            { "name": "Jenkins", "icon": "FaJenkins", "featured": true },
+            { "name": "GitHub Actions", "icon": "SiGithubactions", "featured": true },
+            { "name": "Git", "icon": "FaGitAlt" },
+            { "name": "Ansible", "icon": "SiAnsible" }
+        ],
+        "database": [
+            { "name": "Terraform", "icon": "SiTerraform", "featured": true },
+            { "name": "Prometheus", "icon": "SiPrometheus" },
+            { "name": "Grafana", "icon": "SiGrafana" }
+        ],
+        "tools": [
+            { "name": "TypeScript", "icon": "SiTypescript" },
+            { "name": "Next.js", "icon": "SiNextdotjs" },
+            { "name": "PostgreSQL", "icon": "SiPostgresql" },
+            { "name": "MongoDB", "icon": "SiMongodb" }
+        ]
+    }
+}
