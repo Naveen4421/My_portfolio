@@ -15,60 +15,80 @@
     "projects": [
         {
             "id": "1",
-            "title": "AWS Multi-Region Landing Zone",
-            "category": "Cloud Infrastructure",
-            "year": "2025",
-            "description": "Deployed a secure, multi-account AWS environment using Terraform landing zone blueprints. Configured Transit Gateway routing, AWS Organizations SCPs, IAM Identity Center, and centralized cloudwatch logging.",
-            "image": "/projects/proj_aws_1787770005131.jpg",
-            "repo": "https://github.com/Naveen4421/My_portfolio",
+            "title": "AI Interviewer Pro",
+            "category": "Artificial Intelligence",
+            "year": "2026",
+            "description": "An advanced AI-powered interview platform featuring gaze tracking, real-time eye/emotion monitoring via MediaPipe Face Mesh, dynamic question generation, student dashboards, and automated PDF assessment reports.",
+            "image": "/projects/proj_ai_interviewer.png",
+            "repo": "https://github.com/Naveen4421/ai_interviewer.git",
             "stack": [
-                "AWS",
-                "Terraform",
-                "Security"
+                "React",
+                "MediaPipe",
+                "Express",
+                "Tailwind CSS",
+                "Framer Motion"
             ]
         },
         {
             "id": "2",
-            "title": "Kubernetes GitOps Cluster",
-            "category": "Container Orchestration",
-            "year": "2025",
-            "description": "Designed a production-ready EKS cluster with GitOps continuous delivery via ArgoCD. Automated secrets injection, cert-manager SSL renewals, external-dns mappings, and Prometheus monitoring.",
-            "image": "/projects/proj_k8s_1787770021153.jpg",
-            "demo": "https://dsa-nine-blue.vercel.app/",
-            "repo": "https://github.com/Naveen4421/DSA.git",
+            "title": "Automated Resume Relevance Check System",
+            "category": "Natural Language Processing",
+            "year": "2026",
+            "description": "An automated resume screening and ranking system that uses PyPDF2 and SentenceTransformers (NLP models) to measure semantic similarity between candidate resumes and job descriptions.",
+            "image": "/projects/proj_resume_relevance.png",
+            "repo": "https://github.com/Naveen4421/Automated-Resume-Relevance-Check-System.git",
             "stack": [
-                "Kubernetes",
-                "ArgoCD",
-                "Helm"
+                "Python",
+                "Streamlit",
+                "SentenceTransformers",
+                "NLP",
+                "PyPDF2"
             ]
         },
         {
             "id": "3",
-            "title": "Automated Jenkins Pipeline",
-            "category": "CI/CD",
-            "year": "2024",
-            "description": "Implemented a declarative Jenkins pipeline integrating static code checks (SonarQube), dependency security scanning (Trivy), Docker build controls, and automated deployment hooks.",
-            "image": "/projects/proj_jenkins_1787770034593.jpg",
-            "repo": "https://github.com/Naveen4421/loginapp.git",
+            "title": "Daily Tracker",
+            "category": "Productivity App",
+            "year": "2026",
+            "description": "A lightweight daily activity tracking utility that enables users to log tasks, monitor progress, build habits, and optimize productivity over time.",
+            "image": "/projects/proj_daily_tracker.png",
+            "repo": "https://github.com/Naveen4421/Daily_tracker",
             "stack": [
-                "Jenkins",
-                "Docker",
-                "CI/CD"
+                "Python",
+                "SQLite",
+                "CLI",
+                "Shell"
             ]
         },
         {
             "id": "4",
-            "title": "Serverless Event API Engine",
-            "category": "Serverless Architecture",
-            "year": "2024",
-            "description": "Constructed a low-cost, serverless database analytics ingestion API on AWS. Built with Lambda event routing, API Gateway endpoints, DynamoDB tables, and Cloudwatch billing alarms.",
-            "image": "/projects/proj_serverless_1787770050925.jpg",
-            "repo": "https://github.com/Naveen4421/My_portfolio",
-            "demo": "https://my-portfolio-vert-eight-15.vercel.app/",
+            "title": "eBPF Threat Detection & Response Simulator",
+            "category": "Cloud Security / DevOps",
+            "year": "2026",
+            "description": "An automated cloud-native security simulation platform leveraging eBPF-based Falco rules. Integrates Falco, Falcosidekick, and Falco Talon for active threat remediation (like automated pod termination), visualized via Prometheus and Grafana.",
+            "image": "/projects/proj_ebpf.png",
+            "repo": "https://github.com/Naveen4421/ebpf",
             "stack": [
-                "Serverless",
-                "AWS Lambda",
-                "NoSQL"
+                "eBPF",
+                "Falco",
+                "Kubernetes",
+                "Prometheus",
+                "Grafana"
+            ]
+        },
+        {
+            "id": "5",
+            "title": "Terraform Docker Container Orchestrator",
+            "category": "Infrastructure as Code",
+            "year": "2026",
+            "description": "Infrastructure as Code setup utilizing Terraform's Docker provider to automate the lifecycle of containerized services, custom Docker networks, volumes, and multi-container environments.",
+            "image": "/projects/proj_terraform_docker.png",
+            "repo": "https://github.com/Naveen4421/Terraform_managing-docker-containers",
+            "stack": [
+                "Terraform",
+                "Docker",
+                "IaC",
+                "DevOps"
             ]
         }
     ],
