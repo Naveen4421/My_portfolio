@@ -149,10 +149,6 @@ export default function Hero() {
                     <div className="overflow-hidden">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl 3xl:text-[96px] font-black tracking-tighter leading-[0.85] text-foreground uppercase whitespace-nowrap">
                             Naveen S
-                            <br />
-                            <span className="text-foreground/80 text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-[60px]">
-                                Portfolio
-                            </span>
                         </h1>
                     </div>
                 </div>
