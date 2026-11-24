@@ -91,6 +91,23 @@
                 "IaC",
                 "DevOps"
             ]
+        },
+        {
+            "id": "6",
+            "title": "Kannada RAG",
+            "category": "Generative AI / NLP",
+            "year": "2026",
+            "description": "A scalable Retrieval-Augmented Generation (RAG) system engineered for semantic search and Q&A over extensive Kannada literature collections. Features custom Kannada chunking, embeddings, vector indexing with Qdrant, and grounded LLM answers with citation metadata.",
+            "image": "/projects/proj_kannada_rag.png",
+            "repo": "https://github.com/Naveen4421/kannada-rag.git",
+            "stack": [
+                "Python",
+                "Qdrant",
+                "SentenceTransformers",
+                "FastEmbed",
+                "RAGAS",
+                "Streamlit"
+            ]
         }
     ],
     "roadmap": [
