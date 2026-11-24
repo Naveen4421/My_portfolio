@@ -67,7 +67,7 @@
             "year": "2026",
             "description": "An automated cloud-native security simulation platform leveraging eBPF-based Falco rules. Integrates Falco, Falcosidekick, and Falco Talon for active threat remediation (like automated pod termination), visualized via Prometheus and Grafana.",
             "image": "/projects/proj_ebpf.png",
-            "repo": "https://github.com/Naveen4421/ebpf",
+            "repo": "https://github.com/Naveen4421/real_time_security_using_ebpf.git",
             "stack": [
                 "eBPF",
                 "Falco",
