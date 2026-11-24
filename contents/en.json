@@ -16,12 +16,12 @@
     "projects": [
         {
             "id": "1",
-            "title": "AI Interviewer Pro",
+            "title": "HireEngine",
             "category": "Artificial Intelligence",
             "year": "2026",
-            "description": "An advanced AI-powered interview platform featuring gaze tracking, real-time eye/emotion monitoring via MediaPipe Face Mesh, dynamic question generation, student dashboards, and automated PDF assessment reports.",
+            "description": "An intelligent virtual interviewer that simulates real technical and HR interviews. Analyzes candidate resumes to generate personalized, experience-grounded questions, evaluates spoken responses in real time, and provides instant scoring with structured feedback.",
             "image": "/projects/proj_ai_interviewer.png",
-            "repo": "https://github.com/Naveen4421/ai_interviewer.git",
+            "repo": "https://github.com/Naveen4421/hireengine-ai.git",
             "stack": [
                 "React",
                 "MediaPipe",
