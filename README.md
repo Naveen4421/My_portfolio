@@ -4,7 +4,7 @@
   <br />
 
   <p>
-     A personal DevOps & Cloud Engineer portfolio website inspired by the design quality of Awwwards.
+     A personal Full Stack Developer & DevOps Engineer portfolio website inspired by the design quality of Awwwards.
   </p>
 
 ![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js)
@@ -26,7 +26,7 @@
 
 ## 📋 About
 
-**Naveen S Portfolio** is a highly interactive personal portfolio showcasing expertise in DevOps, Cloud Engineering, Kubernetes, and AWS infrastructure. Built with an open-source template inspired by top-tier Awwwards-winning websites, it features smooth scrolling, physics-based micro-interactions, dynamic theme switching, and a premium user experience.
+**Naveen S Portfolio** is a highly interactive personal portfolio showcasing expertise in Full Stack Development, DevOps, Cloud Engineering, Kubernetes, and AWS infrastructure. Built with an open-source template inspired by top-tier Awwwards-winning websites, it features smooth scrolling, physics-based micro-interactions, dynamic theme switching, and a premium user experience.
 
 ## <a id="features"></a> ✨ Features
 

@@ -16,7 +16,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Naveen S Portfolio",
-  description: "Creative Developer Portfolio",
+  description: "Full Stack Developer & DevOps Engineer Portfolio",
 };
 
 export function generateStaticParams() {

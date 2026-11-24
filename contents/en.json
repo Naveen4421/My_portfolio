@@ -1,10 +1,11 @@
 {
     "about": {
-        "intro": "I'm a *DevOps & Cloud Engineer* focused on building **high-availability, automated, and secure cloud infrastructure**.",
-        "description": "I specialize in container orchestration with **Kubernetes**, enterprise-grade **AWS Landing Zones**, automated **CI/CD pipelines**, and cost-efficient **serverless architectures**.",
-        "full": "Hi, I'm **Naveen S**. I build high-availability, automated, and secure cloud infrastructure. \n\nSpecializing in container orchestration with **Kubernetes**, enterprise-grade **AWS Landing Zones**, automated **CI/CD pipelines**, and cost-efficient **serverless architectures**. Backed by clean Infrastructure as Code (IaC) principles."
+        "intro": "I'm a *Full Stack Developer & DevOps Engineer* focused on building **end-to-end web applications and scalable, automated cloud infrastructure**.",
+        "description": "I specialize in **full-stack web development**, container orchestration with **Kubernetes**, enterprise-grade **AWS Landing Zones**, automated **CI/CD pipelines**, and cost-efficient **serverless architectures**.",
+        "full": "Hi, I'm **Naveen S**. I'm a **Full Stack Developer & DevOps Engineer** building end-to-end applications and secure, automated cloud infrastructure. \n\nSpecializing in full-stack web development, container orchestration with **Kubernetes**, enterprise-grade **AWS Landing Zones**, automated **CI/CD pipelines**, and cost-efficient **serverless architectures**. Backed by modern development practices and clean Infrastructure as Code (IaC) principles."
     },
     "manifesto": [
+        "FULL STACK DEVELOPMENT",
         "INFRASTRUCTURE AS CODE",
         "HIGH AVAILABILITY",
         "CONTINUOUS INTEGRATION",
