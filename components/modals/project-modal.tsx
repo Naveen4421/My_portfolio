@@ -50,11 +50,11 @@ export function ProjectModal({ open, onOpenChange, project }: ProjectModalProps)
                                 priority
                             />
                         )}
-                        <div className="absolute inset-0 bg-linear-to-t from-background to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/20 to-transparent" />
 
-                        <div className="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                        <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                             <div>
-                                <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tighter text-foreground mb-2">
+                                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-2">
                                     {project.title}
                                 </h2>
                                 <div className="flex items-center gap-3 text-sm font-mono tracking-widest text-muted-foreground uppercase">

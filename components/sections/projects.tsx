@@ -195,7 +195,7 @@ const ProjectCard = React.memo(function ProjectCard({ project, onClick }: { proj
                 onClick={onClick}
                 className="group relative w-full xl:w-[45vw] aspect-4/3 shrink-0 xl:mx-6 perspective-1000 cursor-pointer"
             >
-                <div className="relative w-full h-full overflow-hidden bg-muted border border-border/50 transition-all duration-700 ease-out group-hover:border-foreground/20">
+                <div className="relative w-full h-full overflow-hidden rounded-2xl bg-muted border border-border/50 transition-all duration-700 ease-out group-hover:border-foreground/30 shadow-lg">
                     <div className="absolute inset-0 z-0">
                         <Image
                             src={project.image}
@@ -203,28 +203,31 @@ const ProjectCard = React.memo(function ProjectCard({ project, onClick }: { proj
                             fill
                             sizes="(max-width: 1280px) 100vw, 45vw"
                             loading="lazy"
-                            className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 grayscale group-hover:grayscale-0"
+                            className="object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                         />
-                        <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-t from-background/95 via-background/25 to-transparent" />
                     </div>
 
-                    <div className="absolute inset-0 z-10 flex flex-col justify-between p-6 xl:p-12">
+                    <div className="relative z-10 h-full flex flex-col justify-between p-6 xl:p-8">
                         <div className="flex justify-between items-start">
-                            <div className="overflow-hidden">
-                                <span className="block text-xs xl:text-sm font-mono tracking-widest text-muted-foreground uppercase transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-100">
-                                    {project.category}
-                                </span>
-                            </div>
-                            <div className="overflow-hidden">
-                                <span className="block text-xs xl:text-sm font-mono text-muted-foreground transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 delay-200">
-                                    {project.year}
-                                </span>
-                            </div>
+                            <span className="text-xs font-mono tracking-widest text-foreground/90 uppercase px-3 py-1 rounded-full bg-background/60 backdrop-blur-md border border-border/40">
+                                {project.category}
+                            </span>
+                            <span className="text-xs font-mono text-foreground/90 px-3 py-1 rounded-full bg-background/60 backdrop-blur-md border border-border/40">
+                                {project.year}
+                            </span>
                         </div>
 
-                        <h3 className="absolute bottom-6 md:bottom-8 2xl:bottom-12 left-6 md:left-8 2xl:left-12 text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black tracking-tighter uppercase text-foreground opacity-10 group-hover:opacity-100 transition-opacity duration-500 delay-100 pointer-events-none">
-                            {project.title}
-                        </h3>
+                        <div>
+                            <h3 className="text-2xl md:text-3xl xl:text-4xl font-bold tracking-tight text-foreground transition-colors duration-300">
+                                {project.title}
+                            </h3>
+                            {project.stack && project.stack.length > 0 && (
+                                <p className="text-xs font-mono text-muted-foreground mt-2 line-clamp-1">
+                                    {project.stack.slice(0, 5).join(" • ")}
+                                </p>
+                            )}
+                        </div>
                     </div>
 
                 </div>
